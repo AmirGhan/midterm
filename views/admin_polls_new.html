@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>ADMIN/POLLS/NEW</title>
+  <link rel="stylesheet" type="text/css" href="../styles/admin_polls_new.css">
 </head>
 <body>
   <h1>Create a new poll.</h1>
@@ -15,16 +16,14 @@
           <input name="choice1" placeholder="Aladdin">
         <p>Your second choice.</p>
           <input name="choice2" placeholder="Beauty and the Beast">
-        <p>Don't forget to give us your email (we'll send the link to your poll).</p>
-          <input name="email" placeholder="Email address">
         <br>
           <input type="submit" name="Submit">
       </form>
     </main>
     <!-- This will be hidden on the page -->
-    <section id="preview">
+    <section>
       <form>
-        <article class="preview">
+        <article id="preview">
           <header class="header">
             <h3 class="poll-name"></h3>
             <h4 class="description"></h4>
@@ -32,8 +31,8 @@
             <h3 class="choice1">Aladdin</h3>
             <h3 class="choice2">Beauty and the Beast</h3>
         </article>
-        <input type="submit" name="Submit">
-        <a href="#">Cancel</a>
+      <input class="preview-submit" type="submit" name="Submit">
+      <a class="preview-cancel" href="#">Cancel</a>
       </form>
     </section>
 <!-- Hidden until here -->

@@ -2,13 +2,14 @@
 <html>
 <head>
   <title>/HOME</title>
+  <link rel="stylesheet" type="text/css" href="../styles/home.css">
 </head>
 <body>
 <!-- Company name and tagline -->
   <h1>Stack Poll</h1>
-  <h3>You vote, you decide</h3>
+  <h3 class="tagline">You vote, you decide</h3>
 <!-- Clicking will slide down next section -->
-  <button>Get Started</button>
+  <button class="get-started">Get Started</button>
   <main id="create-poll">
     <form class="poll-fields">
       <p>What do you want to call your poll?</p>
@@ -36,8 +37,8 @@
             <h3 class="choice1">Aladdin</h3>
             <h3 class="choice2">Beauty and the Beast</h3>
         </article>
-      <input type="submit" name="Submit">
-      <a href="#">Cancel</a>
+      <input class="preview-submit" type="submit" name="Submit">
+      <a class="preview-cancel" href="#">Cancel</a>
       </form>
     </section>
 <!-- Hidden until here -->
