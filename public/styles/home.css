@@ -1,0 +1,33 @@
+body{
+  width: 100%;
+}
+
+h1, .tagline {
+  text-align: center;
+}
+
+.get-started {
+  width: 25%;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#create-poll {
+  margin-left: 20%;
+}
+
+input {
+  width: 25%;
+}
+
+#preview {
+  text-align: center;
+}
+
+.preview-cancel, .preview-submit {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+~

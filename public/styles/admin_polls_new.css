@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+}
+
+#create-poll {
+  margin-left: 20%;
+}
+
+input {
+  width: 25%;
+}
+
+#preview {
+  text-align: center;
+}
+
+.preview-cancel, .preview-submit {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+~
