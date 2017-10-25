@@ -1,0 +1,31 @@
+.active article i.fa-pie-chart {
+  color: #008000;
+  margin: 5vw;
+  display: inline-block;
+}
+
+.completed article i.fa-pie-chart {
+  color: #FF0000;
+  margin: 5vw;
+  display: inline-block;
+}
+
+h4 {
+  display: inline-block;
+}
+
+body {
+  padding: 5vw;
+}
+
+.active {
+  margin-top: 5vw;
+}
+
+.completed {
+  margin-top: 5vw;
+}
+
+.admin-head {
+  float: right;
+}
