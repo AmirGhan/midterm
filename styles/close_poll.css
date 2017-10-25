@@ -1,0 +1,14 @@
+header .poll-name {
+  display: inline-block;
+}
+
+
+header .admin-email {
+  float: right;
+  display: inline-block;
+}
+
+.poll {
+  margin: 100px 0px;
+}
+
