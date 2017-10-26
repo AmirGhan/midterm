@@ -20,16 +20,17 @@ const router  = express.Router();
 
 ///////////////////////////
 
-const userHelper    = require("../lib/util/user-helper") // Dtahelpers needs to be created and link to be updated
+const userHelper    = require("../lib/util/user-helper") // Datahelpers needs to be created and link to be updated
 
 module.exports = function(DataHelpers) {
 
   router.get("/poll/:id", function(req, res) {
-    DataHelpers.getPoll((err, poll) => {
+    const pollId = req.params.id;
+    DataHelpers.getPoll(pollId, (err, poll) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.json(poll);
+        res.status(200).json(poll);
       }
     });
   });
