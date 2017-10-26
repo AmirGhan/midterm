@@ -15,7 +15,7 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
 const pollsRoutes = require('./routes/polls')
-
+const adminsRoutes = require('./routes/admins')
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 
@@ -45,7 +45,7 @@ app.use("/api/users", usersRoutes(knex));
 
 // file to the Polls Route
 app.use("/polls", pollsRoutes(dataHelpers));
-
+app.use("/admins", adminsRoutes(dataHelpers));
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
