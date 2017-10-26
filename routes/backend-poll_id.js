@@ -27,10 +27,15 @@ module.exports = function(DataHelpers) {
   router.get("/polls/:id", function(req, res) {
     const pollId = req.params.id;
     DataHelpers.getPoll(pollId, (err, poll) => {
+      let templateVars = {
+        poll: poll;
+      }
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(200).json(poll);
+        // res.status(200).json(poll);
+        console.log(templateVars.poll);
+        res.render('polls_id.html', templateVars);
       }
     });
   });
