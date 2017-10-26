@@ -8,12 +8,15 @@ $( "#options" ).sortable();
 $('.button').on('click', function(event){
   event.preventDefault();
   $('.completed').removeAttr('hidden');
-  var options = $('#options').children('.option').toArray();
-  console.log(options);
-  options.forEach(function(option){
-    option.text('hi')
-  })
+  var options = $('#options').children();
+  for (var i = 0; i < options.length; i++) {
+    options.eq(i).attr('data-rank', i);
+  }
 })
+// var children = $('#animDummy1').children();
+// for(var i = 0;i < children.length;i++){
+//     children.eq(i).css('left', (i*120+'px') );
+// }
 
 function createPoll(pollData) {
   var $poll = $('#poll-template').clone();
