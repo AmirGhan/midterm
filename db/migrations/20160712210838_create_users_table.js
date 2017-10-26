@@ -1,28 +1,33 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
-    knex.schema.createTable('users', function(table){
-      table.increments('id').primary();
-    }),
-    knex.schema.createTable('admins', function(table) {
+    knex.schema.createTable('admins', function(table){
       table.increments('id').primary();
       table.string('email');
+      table.string('password');
     }),
     knex.schema.createTable('polls', function(table) {
       table.increments('id').primary();
+      table.string('name');
       table.integer('admin_id').references('id').inTable('admins');
     }),
-    knex.schema.createTable('users_polls', function(table) {
-      table.integer('user_id').references('id').inTable('users');
+    knex.schema.createTable('options', function(table) {
+      table.increments('id').primary();
+      table.string('name');
       table.integer('poll_id').references('id').inTable('polls');
     }),
+    knex.schema.createTable('votes', function(table) {
+      table.increments('id').primary();
+      table.integer('option_id').references('id').inTable('options');
+      table.integer('rank');
+    })
   ])
 };
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('users'),
-    knex.schema.dropTable('admins'),
+    knex.schema.dropTable('votes'),
+    knex.schema.dropTable('options'),
     knex.schema.dropTable('polls'),
-    knex.schema.dropTable('users_polls')
+    knex.schema.dropTable('admins')
   ])
 };
