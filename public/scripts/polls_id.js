@@ -8,6 +8,11 @@ $( "#options" ).sortable();
 $('.button').on('click', function(event){
   event.preventDefault();
   $('.completed').removeAttr('hidden');
+  var options = $('#options').children('.option').toArray();
+  console.log(options);
+  options.forEach(function(option){
+    option.text('hi')
+  })
 })
 
 function createPoll(pollData) {
