@@ -8,7 +8,7 @@ $('.button').on('click', function(event){
   event.preventDefault();
   $('.completed').removeAttr('hidden');
   var options = $('#options').children();
-  for (var i = 0; i < options.length; i++) {
+  for (var i = 1; i < options.length; i++) {
     options.eq(i).attr('data-rank', i);
   }
 })

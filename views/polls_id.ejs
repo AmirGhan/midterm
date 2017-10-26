@@ -4,7 +4,7 @@
 <head>
   <title>/polls/:id</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./styles/polls_id.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/polls_id.css" type="text/css" />
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
   crossorigin="anonymous""></script>
@@ -16,27 +16,19 @@
 <section id="poll-template" ><!-- hidden -->
   <form id="poll">
     <header class="header">
-      <h1 class="poll-name"><%= poll %></h3>
-      <h3 class="description">DESCRIPTION</h4><!-- optional -->
+      <h1 class="poll-name"><%=poll[0].pollName%></h3>
     </header>
 
     <section id="options">
+
+
+      <% poll.forEach(function(option) { %>
       <aside class="option">
-        <h4 class="option-name">MOVIE1
+        <h4 class="option-name"><%=option.optionName%>
           <span class="glyphicon glyphicon-plus"></span>
         </h4>
       </aside>
-      <aside class="option">
-        <h4 class="option-name">MOVIE2
-          <span class="glyphicon glyphicon-plus"></span>
-        </h4>
-      </aside>
-      <aside class="option">
-        <h4 class="option-name">MOVIE3
-          <span class="glyphicon glyphicon-plus"></span>
-        </h4>
-      </aside>
-    </section>
+      <% }) %>
 
     <button class="button">
       <input type="submit" name="Submit" class="btn btn-outline-info">
@@ -49,6 +41,6 @@
   <p>Thank you for completing the poll!</p>
 </section>
 
-<script type="text/javascript" src="./scripts/polls_id.js"></script>
+<script type="text/javascript" src="/scripts/polls_id.js"></script>
 </body>
 </html>
