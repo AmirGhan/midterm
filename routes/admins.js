@@ -19,5 +19,5 @@ module.exports = function(dataHelpers) {
     }
   });
 });
-return pollsRoutes;
+return adminsRoutes;
 }
