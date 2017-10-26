@@ -17,6 +17,6 @@ module.exports = function makeDataHelpers(knex) {
       callback(err);
     });
   }
-    
+
   }
 };

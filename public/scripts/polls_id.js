@@ -1,6 +1,5 @@
 $(() => {
 
-
 //Sort options
 $( "#options" ).sortable();
 
@@ -26,7 +25,7 @@ function createPoll(pollData) {
   // if (pollData['poll']['description']) {
   //   $poll.find('.poll-desc).text(pollData['poll']['description']);
   // }
-  appendOption(pollData)
+  appendOptions(pollData)
 }
 
 function appendOptions(optionsArr) {
