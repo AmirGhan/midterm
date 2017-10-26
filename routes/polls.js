@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require('express');
-const router  = express.Router();
+const pollsRoutes  = express.Router();
 
 // module.exports = (knex) => {
 
@@ -20,18 +20,20 @@ const router  = express.Router();
 
 ///////////////////////////
 
-const userHelper    = require("../lib/util/user-helper") // Datahelpers needs to be created and link to be updated
+ // Datahelpers needs to be created and link to be updated
 
-module.exports = function(DataHelpers) {
+module.exports = function(dataHelpers) {
 
-  router.get("/polls/:id", function(req, res) {
+  pollsRoutes.get("/:id", function(req, res) {
     const pollId = req.params.id;
-    DataHelpers.getPoll(pollId, (err, poll) => {
+    dataHelpers.getPoll(pollId, (err, poll) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
+        console.log("response: ", poll)
         res.status(200).json(poll);
       }
     });
   });
+return pollsRoutes;
 }
