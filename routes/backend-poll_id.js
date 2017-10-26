@@ -24,7 +24,7 @@ const userHelper    = require("../lib/util/user-helper") // Datahelpers needs to
 
 module.exports = function(DataHelpers) {
 
-  router.get("/poll/:id", function(req, res) {
+  router.get("/polls/:id", function(req, res) {
     const pollId = req.params.id;
     DataHelpers.getPoll(pollId, (err, poll) => {
       if (err) {
