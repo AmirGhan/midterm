@@ -6,7 +6,8 @@ $( "#options" ).sortable();
 
 //Adding data attributes on submit
 $('.button').on('click', function(event){
-  $('.option').addClass('rank');
+  event.preventDefault();
+  $('').removeAttr('hidden');
 })
 
 function createPoll(pollData) {
