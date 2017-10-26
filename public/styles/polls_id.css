@@ -3,6 +3,21 @@ body {
   text-align: center;
 }
 
+.option {
+  border: 1px solid red;
+  margin: 25px 25px;
+}
+
+span {
+  margin-right: 50px;
+  float: right;
+}
+
+h3 {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .poll-name {
   border: 2px solid black;
 }
@@ -15,4 +30,3 @@ body {
   margin: 1vw;
   padding: 1vw;
 }
-~
