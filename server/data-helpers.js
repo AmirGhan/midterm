@@ -16,6 +16,19 @@ module.exports = function makeDataHelpers(knex) {
     .catch(function(err) {
       callback(err);
     });
+  },
+
+  getAdminPolls: function(adminId, callback) {
+
+    knex('admins')
+    .join('polls', 'admins.id', '=', 'polls.admin_id')
+    .select('*').where('admins.id', '=', adminId)
+    .then(function(result) {
+      callback(null, result);
+    })
+    .catch(function(err) {
+      callback(err);
+    });
   }
 
   }
