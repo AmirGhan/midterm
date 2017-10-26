@@ -3,24 +3,6 @@
 const express = require('express');
 const pollsRoutes  = express.Router();
 
-// module.exports = (knex) => {
-
-//   router.get("/", (req, res) => {
-//     knex
-//       .select("*")
-//       .from("users")
-//       .then((results) => {
-//         res.json(results);
-//     });
-//   });
-
-//   return router;
-// }
-
-
-///////////////////////////
-
- // Datahelpers needs to be created and link to be updated
 
 module.exports = function(dataHelpers) {
 
