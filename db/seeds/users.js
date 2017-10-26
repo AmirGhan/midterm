@@ -43,34 +43,3 @@ exports.seed = function(knex, Promise) {
     ])
   })
 }
-
-//
-//     knex('admins').del().then(function() {
-//       knex('admins').insert({email: 'dilan@example.com', password: '123'}),
-//       knex('admins').insert({email: 'riley@example.com', password: '123'}),
-//       knex('admins').insert({email: 'amir@example.com', password: '123'})
-//     }),
-//     knex('polls').del().then(function() {
-//       knex('polls').insert({name: 'Which movie?', admin_id: 1}),
-//       knex('polls').insert({name: 'Which komboucha?', admin_id: 2}),
-//       knex('polls').insert({name: 'What club?', admin_id: 3})
-//     }),
-//     knex('options').del().then(function() {
-//       knex('options').insert({name: 'Lion King', poll_id: 1}),
-//       knex('options').insert({name: 'Beauty and the Beast', poll_id: 1}),
-//       knex('options').insert({name: 'Aladdin', poll_id: 1}),
-//       knex('options').insert({name: 'Ginger', poll_id: 2}),
-//       knex('options').insert({name: 'Hibiscus', poll_id: 2}),
-//       knex('options').insert({name: 'Crew', poll_id: 3}),
-//       knex('options').insert({name: 'New City Gas', poll_id: 3})
-//     }),
-//     knex('votes').del().then(function() {
-//       knex('votes').insert({option_id: 1, rank: 3}),
-//       knex('votes').insert({option_id: 2, rank: 2}),
-//       knex('votes').insert({option_id: 3, rank: 1}),
-//       knex('votes').insert({option_id: 1, rank: 2}),
-//       knex('votes').insert({option_id: 2, rank: 3}),
-//       knex('votes').insert({option_id: 3, rank: 1})
-//     })
-//   ])
-// };
