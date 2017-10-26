@@ -7,12 +7,12 @@ exports.up = function(knex, Promise) {
     }),
     knex.schema.createTable('polls', function(table) {
       table.increments('id').primary();
-      table.string('name');
+      table.string('pollName');
       table.integer('admin_id').references('id').inTable('admins');
     }),
     knex.schema.createTable('options', function(table) {
       table.increments('id').primary();
-      table.string('name');
+      table.string('optionName');
       table.integer('poll_id').references('id').inTable('polls');
     }),
     knex.schema.createTable('votes', function(table) {

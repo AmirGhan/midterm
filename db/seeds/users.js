@@ -16,20 +16,20 @@ exports.seed = function(knex, Promise) {
     })
   .then(function(){
     return Promise.all([
-      knex('polls').insert({id: 1, name: 'Which movie?', admin_id: 1}),
-      knex('polls').insert({id: 2, name: 'Which komboucha?', admin_id: 2}),
-      knex('polls').insert({id: 3, name: 'What club?', admin_id: 3})
+      knex('polls').insert({id: 1, pollName: 'Which movie?', admin_id: 1}),
+      knex('polls').insert({id: 2, pollName: 'Which komboucha?', admin_id: 2}),
+      knex('polls').insert({id: 3, pollName: 'What club?', admin_id: 3})
     ])
   })
   .then(function(){
     return Promise.all([
-      knex('options').insert({id: 1, name: 'Lion King', poll_id: 1}),
-      knex('options').insert({id: 2, name: 'Beauty and the Beast', poll_id: 1}),
-      knex('options').insert({id: 3, name: 'Aladdin', poll_id: 1}),
-      knex('options').insert({id: 4, name: 'Ginger', poll_id: 2}),
-      knex('options').insert({id: 5, name: 'Hibiscus', poll_id: 2}),
-      knex('options').insert({id: 6, name: 'Crew', poll_id: 3}),
-      knex('options').insert({id: 7, name: 'New City Gas', poll_id: 3})
+      knex('options').insert({id: 1, optionName: 'Lion King', poll_id: 1}),
+      knex('options').insert({id: 2, optionName: 'Beauty and the Beast', poll_id: 1}),
+      knex('options').insert({id: 3, optionName: 'Aladdin', poll_id: 1}),
+      knex('options').insert({id: 4, optionName: 'Ginger', poll_id: 2}),
+      knex('options').insert({id: 5, optionName: 'Hibiscus', poll_id: 2}),
+      knex('options').insert({id: 6, optionName: 'Crew', poll_id: 3}),
+      knex('options').insert({id: 7, optionName: 'New City Gas', poll_id: 3})
     ])
   })
   .then(function(){
