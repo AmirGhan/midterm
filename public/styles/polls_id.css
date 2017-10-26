@@ -25,3 +25,14 @@ h3 {
 .description {
   border: 2px solid black;
 }
+
+.completed {
+  font-size: 15rem;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.9);
+  font: white;
+  font-family: Helvetica;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
