@@ -1,0 +1,24 @@
+* {
+  border: 1px solid red;
+}
+
+.new-poll {
+  height: 5000px;
+  width: 100%;
+
+}
+
+p {
+  color: red;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+}
+
+.options-section {
+  margin: 0 auto;
+  width: 25%;
+  height: 500px;
+}

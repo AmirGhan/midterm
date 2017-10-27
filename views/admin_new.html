@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>/admins/:id/polls/new</title>
+    <link rel="stylesheet" type="text/css" href="../styles/admin_new.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous""></script>
+
+  </head>
+
+  <body>
+    <header>
+      <h2> <- include partial: Admin Email > </h2>
+    </header>
+    <main class="container">
+      <div>
+        <h1>Create your poll</h1>
+        
+      </div>
+      <section class="new-poll">
+        
+        <form method="POST" action="/">
+          <section class="options-section">
+            <textarea class="options-template" hidden></textarea>
+            <p>Poll name: </p>
+            <textarea name="poll-name" placeholder="What movie are we gonna watch this Tuesday?"></textarea>
+            <p>Option: </p>
+            <textarea name="option" placeholder="Blade Runner 2049"></textarea>
+            <p id="p-template">Option: </p>
+            <textarea class="option" name="option" placeholder="Suburbicon"></textarea>
+          </section>
+          <br>
+          <i class="glyphicon glyphicon-plus"></i>
+          <br>
+          <input class="submit" type="submit" value="Submit">
+          <a href="/admins/:id" id="cancel">Cancel</a>
+          
+        </form>
+      </section>
+      
+    </main>
+
+    <script type="text/javascript" src="../public/scripts/admin_new.js"></script>
+  </body>
+</html>
