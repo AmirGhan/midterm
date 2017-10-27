@@ -2,12 +2,33 @@
 
 const express = require('express');
 const adminsRoutes  = express.Router();
+const userAuth = require('../server/user-auth.js');
 
 module.exports = function(dataHelpers) {
 
-//POSTS
-  adminsRoutes.post('/register', function(req, res){
-    console.log(req);
+// Register GET
+
+adminsRoutes.get('/register', function(req, res) {
+  res.render('register');
+})
+
+
+// Register POSTS\
+  adminsRoutes.post('/', function(req, res){
+    
+    const {email, password} = req.body; // 1. user info captured, 2. save to databse by call insert admin
+    userAuth.addUser(email, password, function(err, adminId) {
+      if (err) {
+        let templateVars = {err: "Can not register"};
+        console.log(err);
+        res.render("register", templateVars);
+      } else {
+        
+        res.status(201)//.send('User has been created');
+        res.redirect(`/admins/${adminId[0]}/polls`); 
+      }
+    })
+
   }),
 
 
@@ -23,7 +44,7 @@ module.exports = function(dataHelpers) {
   adminsRoutes.get("/:id/polls", function(req, res) {
     const adminId = req.params.id;
     dataHelpers.getAdminPolls(adminId, (err, polls) => {
-    var templateVars = {
+    let templateVars = {
       polls: polls
     }
       if (err) {
