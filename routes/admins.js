@@ -15,7 +15,7 @@ adminsRoutes.get('/register', function(req, res) {
 
 // Register POSTS\
   adminsRoutes.post('/', function(req, res){
-    
+
     const {email, password} = req.body; // 1. user info captured, 2. save to databse by call insert admin
     userAuth.addUser(email, password, function(err, adminId) {
       if (err) {
@@ -23,12 +23,28 @@ adminsRoutes.get('/register', function(req, res) {
         console.log(err);
         res.render("register", templateVars);
       } else {
-        
+
         res.status(201)//.send('User has been created');
-        res.redirect(`/admins/${adminId[0]}/polls`); 
+        res.redirect(`/admins/${adminId[0]}/polls`);
       }
     })
 
+  }),
+
+  adminsRoutes.post("/:id/polls/new", function(req, res){
+    const options = req.query.option;
+    const pollName = req.query.pollName;
+    const admin_id = req.params.id;
+    const status = true;
+    dataHelpers.savePoll(pollName, admin_id, status, function(err, poll_id){
+      options.forEach(function(option){
+        console.log(option);
+        dataHelpers.saveOption(Number(poll_id), option, function(err, result){
+          console.log(err);
+        })
+      })
+    })
+    res.send('Good job!')
   }),
 
 

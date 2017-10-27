@@ -42,6 +42,27 @@ module.exports = function makeDataHelpers(knex) {
     .catch(function(err) {
       callback(err)
     })
+  },
+  savePoll: function(pollName, admin_id, status, callback) {
+    knex('polls')
+    .returning('id')
+    .insert({pollName: pollName, admin_id: admin_id, status: status})
+    .then(function(result){
+      callback(null, result)
+    })
+    .catch(function(err){
+      callback(err)
+    })
+  },
+  saveOption: function(poll_id, option, callback) {
+    knex('options')
+    .insert({poll_id: poll_id, optionName: option})
+    .then(function(result){
+      callback(null, result)
+    })
+    .catch(function(err){
+      callback(err)
+    })
   }
 
   }

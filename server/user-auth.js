@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-// const bcrypt = require('bcrypt');
-=======
 const bcrypt = require('bcrypt');
 
-const checkEmailUniqueness = function(email, knex) {
->>>>>>> 658ac339830d600c28f811572ec5c672e2903c78
 module.exports = function makeAuthHelpers(knex) {
   return {
     addUser: function(email, password) {
@@ -35,7 +30,7 @@ module.exports = function makeAuthHelpers(knex) {
     })
   })
 },
-const findByEmail = function(email, knex) {
+findByEmail: function(email, callback) {
       return new Promise((resolve, reject) => {
         knex('admins')
         .select('*')
@@ -43,35 +38,37 @@ const findByEmail = function(email, knex) {
         .limit(1)
         .then((rows) => {
           user = rows[0]
+          callback(null, user);
+          //Do we require promise?
           return resolve(user)
         })
         .catch((error) => reject(error));
       })
     }
 
-module.exports = function makeAuthHelpers(knex) {
-  return {
-  addUser: function(email, password, callback) {
-    //syntax
-    return checkEmailUniqueness(email, knex)
-    .then((email)=>{
-      return bcrypt.hash(password, 10);
-    })
-    .then((passwordDigest)=>{
-      return knex('admins')
-      .returning('id')
-      .insert({
-        email: email,
-        password: passwordDigest
-      })
-      .then((result) => {
-        console.log(result)
-        callback(null, result)
-      })
-      .catch((err)=>{
-        callback(err)
-      })
-    })
-  }
+// module.exports = function makeAuthHelpers(knex) {
+//   return {
+//   addUser: function(email, password, callback) {
+//     //syntax
+//     return checkEmailUniqueness(email, knex)
+//     .then((email)=>{
+//       return bcrypt.hash(password, 10);
+//     })
+//     .then((passwordDigest)=>{
+//       return knex('admins')
+//       .returning('id')
+//       .insert({
+//         email: email,
+//         password: passwordDigest
+//       })
+//       .then((result) => {
+//         console.log(result)
+//         callback(null, result)
+//       })
+//       .catch((err)=>{
+//         callback(err)
+//       })
+//     })
+//   }
   }
 }

@@ -18,15 +18,15 @@
     <main class="container">
       <div>
         <h1>Create your poll</h1>
-        
+
       </div>
       <section class="new-poll">
-        
+
         <form method="POST" action="/">
           <section class="options-section">
             <textarea class="options-template" hidden></textarea>
             <p>Poll name: </p>
-            <textarea name="poll-name" placeholder="What movie are we gonna watch this Tuesday?"></textarea>
+            <textarea name="pollName" placeholder="What movie are we gonna watch this Tuesday?"></textarea>
             <p>Option: </p>
             <textarea name="option" placeholder="Blade Runner 2049"></textarea>
             <p id="p-template">Option: </p>
@@ -37,10 +37,10 @@
           <br>
           <input class="submit" type="submit" value="Submit">
           <a href="/admins/:id" id="cancel">Cancel</a>
-          
+
         </form>
       </section>
-      
+
     </main>
 
     <script type="text/javascript" src="../public/scripts/admin_new.js"></script>
