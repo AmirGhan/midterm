@@ -3,9 +3,23 @@
 const express = require('express');
 const adminsRoutes  = express.Router();
 
-
 module.exports = function(dataHelpers) {
 
+//POSTS
+  adminsRoutes.post('/register', function(req, res){
+    console.log(req);
+  }),
+
+
+
+
+
+
+
+
+
+
+//GETS
   adminsRoutes.get("/:id/polls", function(req, res) {
     const adminId = req.params.id;
     dataHelpers.getAdminPolls(adminId, (err, polls) => {
