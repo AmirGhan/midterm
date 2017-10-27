@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 // const bcrypt = require('bcrypt');
+=======
+const bcrypt = require('bcrypt');
+
+const checkEmailUniqueness = function(email, knex) {
+>>>>>>> 658ac339830d600c28f811572ec5c672e2903c78
 module.exports = function makeAuthHelpers(knex) {
   return {
     addUser: function(email, password) {

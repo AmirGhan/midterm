@@ -1,0 +1,11 @@
+<header> DECISION MAKER </header>
+<% if (user) { %>
+  <p>
+    <%= user.email %>
+  </p>
+  <form method="POST" action="/logout">
+    <button type="submit">LOGOUT</button>
+  </form>
+  <% } else { %>
+    <a href="/register">REGISTER</a>
+    <% } %>
