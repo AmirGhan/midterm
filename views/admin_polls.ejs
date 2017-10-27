@@ -3,6 +3,7 @@
 
 <head>
   <title>/admins/:id/polls</title>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -22,30 +23,31 @@
 <h3>ACTIVE POLLS</h3>
 <p class='inactive'>There are no active polls to show...</p>
   <% polls.forEach(function(a) { %>
+    <% if(a.status){ %>
       <section id="adm-poll-template active">
         <article>
           <i class="fa fa-pie-chart fa-2x green" aria-hidden="true"></i>
-          <p class="poll-button"><%=a.pollName%></p>
-          <a href="${polls.link}">USER LINK</a>
+          <button class="poll-button"><%=a.pollName%></button>
+          <a href="${a.link}">USER LINK</a>
         </article>
       </section>
+  <% } %>
   <% }) %>
 </section>
 
 <h3>COMPLETED POLLS</h3>
 <p class='complete'>There are no completed polls to show...</p>
-  <% polls.forEach(function(poll) { %>
-    <% if(poll.status === 0){ %>
-      <% removeElem('.complete'); %>
+  <% polls.forEach(function(a) { %>
+    <% if(!a.status){ %>
       <section id="adm-poll-template completed">
         <article>
           <i class="fa fa-pie-chart fa-2x red" aria-hidden="true"></i>
-          <button class="poll-button"><%=poll.pollName%></button>
+          <button class="poll-button"><%=a.pollName%></button>
         </article>
       </section>
     <% } %>
   <% }) %>
 
-
-<script type="text/javascript" src="/scripts/admin_polls.js"></script>
+  <script type="text/javascript" src="/scripts/admin_polls.js"></script>
+</body>
 </html>

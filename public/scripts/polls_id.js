@@ -1,5 +1,4 @@
 $(() => {
-
 //Sort options
 $( "#options" ).sortable();
 
