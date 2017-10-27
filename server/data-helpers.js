@@ -29,6 +29,19 @@ module.exports = function makeDataHelpers(knex) {
     .catch(function(err) {
       callback(err);
     });
+  },
+
+  saveAdmin: function(email, password, callback) {
+    console.log(email, password)
+    knex('admins')
+    .returning('id')
+    .insert({email: email, password: password})
+    .then(function(result) {
+      callback(null, result)
+    })
+    .catch(function(err) {
+      callback(err)
+    })
   }
 
   }
