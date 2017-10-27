@@ -1,15 +1,22 @@
 .active article i.fa-pie-chart {
+  margin: 5vw;
+  display: inline-block;
+}
+
+article i.fa-pie-chart {
+  margin: 5vw;
+  display: inline-block;
+}
+
+.green {
   color: #008000;
-  margin: 5vw;
-  display: inline-block;
 }
-
-.completed article i.fa-pie-chart {
+.red {
   color: #FF0000;
-  margin: 5vw;
+}
+.poll-button {
   display: inline-block;
 }
-
 h4 {
   display: inline-block;
 }
