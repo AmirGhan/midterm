@@ -12,12 +12,20 @@ module.exports = function(dataHelpers) {
     var templateVars = {
       polls: polls
     }
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.status(200).render('admin_polls', templateVars)
+      }
+    });
+  }),
+  adminsRoutes.get("/:id/polls/new", function(req, res){
+    const adminId = req.params.id;
     if (err) {
       res.status(500).json({ error: err.message });
     } else {
-      res.status(200).render('admin_polls', templateVars)
+      res.status(200).render('admin_new');
     }
-  });
-});
+  })
 return adminsRoutes;
 }
