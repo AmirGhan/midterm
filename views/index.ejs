@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>/ - Decision Maker</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -9,10 +9,50 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="https://use.fontawesome.com/c0ee90dc6d.js"></script>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
-    <p>Welcome to Decision Maker</p>
+    <h4>SIGN UP</h4>
+    <a href="/register">REGISTER</a>
+
+    <h4>SING IN</h4>
+    <form action="/" method="POST">
+      <p>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="user@example.com" />
+      </p>
+      <p>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="********" />
+      </p>
+      <p>
+        <button type="submit">SIGN IN</button>
+      </p>
+    </form>
+
+    <h4>EXAMPLE</h4>
+    <i class="fa fa-arrow-circle-left" aria-hidden="true">DRAG ME</i>
+
+      <h5>WHICH RESTAURANT SHOULD WE GO TO THIS FRIDAY?</h5>
+    <ul class="options">
+      <li class="ex-option">
+        AMELIA'S
+      </li>
+      <li class="ex-option">
+        BIG IN JAPAN
+      </li>
+      <li class="ex-option">
+        COMPTOIR 21
+      </li>
+      <li class="ex-option">
+        AREPERA
+      </li>
+      <li class="ex-option">
+        ICE HOUSE
+      </li>
+    </ul>
+  <script type="text/javascript" src="/scripts/index.js"></script>
   </body>
 </html>
