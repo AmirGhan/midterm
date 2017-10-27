@@ -1,4 +1,4 @@
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 module.exports = function makeAuthHelpers(knex) {
   return {
@@ -8,9 +8,10 @@ module.exports = function makeAuthHelpers(knex) {
         return bcrypt.hash(password, 10);
       })
       .then((passwordDigest)=>{
-        return knex('admins').insert({
+        return knex('admins')
+        .insert({
           email: email,
-          password_digest: passwordDigest
+          password: passwordDigest
         })
       })
     },
