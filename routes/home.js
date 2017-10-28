@@ -6,7 +6,8 @@ const homeRoutes  = express.Router();
 module.exports = function(authHelpers) {
 
   homeRoutes.post('/login', function(req, res){
-    const {email, password} = req.query;
+    console.log('hi');
+    const {email, password} = req.body;
     authHelpers.findByEmail(email, function(err, admin){
       res.redirect(`/admins/${admin.id}/polls`)
     });
