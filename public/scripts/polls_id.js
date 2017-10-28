@@ -16,10 +16,12 @@ $('.button').on('click', function(event){
   $('.completed').removeAttr('hidden');
   var options = $('#options').children();
   for (var i = 1; i < options.length; i++) {
-    options.eq(i).attr('data-rank', i);
+    options.eq(i-1).attr('data-rank', i);
   }
+
   let $rank = $(".option").attr("data-rank");
   let $pollName = $(".poll-name").text();
+
   let data = {
     rank: $rank,
     pollName: $pollName

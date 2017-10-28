@@ -26,7 +26,7 @@ module.exports = function(dataHelpers) {
 // to VOTE
   pollsRoutes.post("/:id", function (req, res) {
     
-    res.send("Yeay!")
+    console.log(req.body)
   })
 
 return pollsRoutes;
