@@ -3,51 +3,73 @@
 
 <head>
   <title>/admins/:id/polls</title>
+<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-  crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+
   <!-- FIND NEW jQuery UI CDN. This one isn't official, but it works, while the official isn't working for me -->
   <script src="https://use.fontawesome.com/c0ee90dc6d.js"></script>
 </head>
 
 <body>
-  <section class="admin-head">
-    <p class="email row align-items-start"><%=polls[0].email%></p>
-    <button class="new-poll-admin btn btn-outline-info row align-items-center">Create New Poll</button>
-  </section>
+  <nav class="navbar fixed-top navbar-light">
+    <span>
+      <ul>
+        <li>
+          <p>
+            <%=polls[0].email%>
+          </p>
+        </li>
+        <li>
+          <a href=`/admins/${id}/new`>Create New Poll</a>
+        </li>
+      </ul>
+    </span>
+  </nav>
 
-<section>
-<h3>ACTIVE POLLS</h3>
-<p class='inactive'>There are no active polls to show...</p>
-  <% polls.forEach(function(a) { %>
-    <% if(a.status){ %>
-      <section id="adm-poll-template active">
-        <article>
-          <i class="fa fa-pie-chart fa-2x green" aria-hidden="true"></i>
-          <button class="poll-button"><%=a.pollName%></button>
-          <a href="${a.link}">USER LINK</a>
-        </article>
-      </section>
-  <% } %>
-  <% }) %>
-</section>
+  <div class="body forImg">
+    <div class="jumbotron">
+      <h3 class="display-3">ACTIVE POLLS</h3>
+      <p class="lead inactive">TThere are no active polls to show...</p>
+      <% polls.forEach(function(a) { %>
+        <% if(a.status){ %>
+          <section id="adm-poll-template active">
+            <article>
+              <!-- <i class="fa fa-pie-chart fa-3x green" aria-hidden="true"></i> -->
+              <button class="poll-button"><%=a.pollName%></button>
+              <a class="userlink" href="${a.link}">USER LINK</a>
+            </article>
+          </section>
+          <% } %>
+            <% }) %>
+    </div>
 
-<h3>COMPLETED POLLS</h3>
-<p class='complete'>There are no completed polls to show...</p>
-  <% polls.forEach(function(a) { %>
-    <% if(!a.status){ %>
-      <section id="adm-poll-template completed">
-        <article>
-          <i class="fa fa-pie-chart fa-2x red" aria-hidden="true"></i>
-          <button class="poll-button"><%=a.pollName%></button>
-        </article>
-      </section>
-    <% } %>
-  <% }) %>
+    <hr class="my-4">
+    <div class="forImg">
+      <div class="jumbotron">
+        <h3 class="display-3">COMPLETED POLLS</h3>
+        <p class='complete'>There are no completed polls to show...</p>
+        <% polls.forEach(function(a) { %>
+          <% if(!a.status){ %>
+            <section id="adm-poll-template completed">
+              <article>
+                <!-- <i class="fa fa-pie-chart fa-2x red" aria-hidden="true"></i> -->
+                <button class="poll-button"><%=a.pollName%></button>
+              </article>
+            </section>
+            <% } %>
+              <% }) %>
+      </div>
+    </div>
+
+  </div>
 
   <script type="text/javascript" src="/scripts/admin_polls.js"></script>
 </body>
+
 </html>

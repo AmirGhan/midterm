@@ -2,10 +2,14 @@
 <html lang="en">
   <head>
     <title>/ - Decision Maker</title>
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/index.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -13,52 +17,52 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="https://use.fontawesome.com/c0ee90dc6d.js"></script>
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="/scripts/charts.js"></script>
   </head>
 
   <body>
-    <!-- <div id="piechart" style="width: 900px; height: 500px;"></div> -->
+    <nav class="navbar fixed-top navbar-light">
+      <a class="register" href="/register">REGISTER</a>
+      <form action="/" method="POST">
+        <div class="row">
+          <div class="col">
+            <!-- <label for="email">Email</label> -->
+            <input class="form-control" id="email" type="email" name="email" placeholder="Email" />
+          </div>
+          <div class="col">
+            <!-- <label for="password">Password</label> -->
+            <input class="form-control" id="password" type="password" name="password" placeholder="Password" />
+          </div>
+          <p>
+            <button class="form-control" type="submit">SIGN IN</button>
+          </p>
+        </div>
+      </form>
+    </nav>
 
-    <h4>SIGN UP</h4>
-    <a href="/register">REGISTER</a>
+<section class="body jumbotron">
+  <h4 class="display-3">DRAG MY CHOICES!</h4>
 
-    <h4>SING IN</h4>
-    <form action="/" method="POST">
-      <p>
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" placeholder="user@example.com" />
-      </p>
-      <p>
-        <label for="password">Password</label>
-        <input id="password" type="password" name="password" placeholder="********" />
-      </p>
-      <p>
-        <button type="submit">SIGN IN</button>
-      </p>
-    </form>
+    <h5 class="lead">WHICH RESTAURANT SHOULD WE GO TO THIS FRIDAY?</h5>
+    <hr class="my-4">
+  <ul class="options">
+    <li class="ex-option">
+      AMELIA'S
+    </li>
+    <li class="ex-option">
+      BIG IN JAPAN
+    </li>
+    <li class="ex-option">
+      COMPTOIR 21
+    </li>
+    <li class="ex-option">
+      AREPERA
+    </li>
+    <li class="ex-option">
+      ICE HOUSE
+    </li>
+  </ul>
+</section>
 
-    <h4>EXAMPLE</h4>
-    <i class="fa fa-arrow-circle-left" aria-hidden="true">DRAG ME</i>
-
-      <h5>WHICH RESTAURANT SHOULD WE GO TO THIS FRIDAY?</h5>
-    <ul class="options">
-      <li class="ex-option">
-        AMELIA'S
-      </li>
-      <li class="ex-option">
-        BIG IN JAPAN
-      </li>
-      <li class="ex-option">
-        COMPTOIR 21
-      </li>
-      <li class="ex-option">
-        AREPERA
-      </li>
-      <li class="ex-option">
-        ICE HOUSE
-      </li>
-    </ul>
   <script type="text/javascript" src="/scripts/index.js"></script>
   </body>
 </html>
