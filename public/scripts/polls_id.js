@@ -13,24 +13,41 @@ $('.button').on('click', function(event){
 
   let $url = $("#poll-template").attr("name");
 
+ // let $pollName = $(".poll-name").text();
+
+
   $('.completed').removeAttr('hidden');
+
   var options = $('#options').children();
+
+
   for (var i = 1; i < options.length; i++) {
     options.eq(i-1).attr('data-rank', i);
   }
-
-  let $rank = $(".option").attr("data-rank");
-  let $pollName = $(".poll-name").text();
-
-  let data = {
-    rank: $rank,
-    pollName: $pollName
+  let votes = []
+  for (var i = 0; i < options.length -1; i++) {
+    let obj ={}
+    let $optionId = $(".option-name").eq([i]).attr("data-optionId");
+    let $optionName = $(".option-name").eq([i]).attr("data-name"); 
+    let $optionRank = $(".option").eq([i]).attr("data-rank");
+    obj.optionId = $optionId;
+    obj.optionName = $optionName;
+    obj.rank = $optionRank;
+    votes.push(obj);
   }
+  
+  let pollObj = {}
+
+  let $pollId = $("button").attr("data-pollId");
+  pollObj.id = $pollId;
+  pollObj.options = votes;
+
+
   $.ajax({
     url: $url,
     method: 'POST',
     dataType: 'json',
-    data: data,
+    data: pollObj,
     success: function(response) {
     console.log("yeepy!")
       

@@ -13,6 +13,7 @@ module.exports = function(dataHelpers) {
       poll: poll,
       id: pollId
     }
+    console.log(templateVars.poll)
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
@@ -25,8 +26,22 @@ module.exports = function(dataHelpers) {
 
 // to VOTE
   pollsRoutes.post("/:id", function (req, res) {
-    
-    console.log(req.body)
+    let pollObj = req.body;
+   
+    let pollOpt = pollObj.options;
+
+   
+
+    pollOpt.forEach(function(opt){
+      dataHelpers.addVotes(opt, (err, result)=> {
+        if (err) {
+          res.status(500).json({ error: err.message });
+          return
+        } 
+        
+      })
+    })
+      res.status(200).send('yay')
   })
 
 return pollsRoutes;
