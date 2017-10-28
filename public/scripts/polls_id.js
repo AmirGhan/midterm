@@ -10,7 +10,6 @@ $( "#options" ).sortable();
 //Adding data attributes on submit
 $('.button').on('click', function(event){
   event.preventDefault();
-
   let $url = $("#options").attr("name");
   console.log($url);
  // let $pollName = $(".poll-name").text();
