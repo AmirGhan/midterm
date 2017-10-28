@@ -30,13 +30,12 @@
       <% poll.forEach(function(option) { %>
       <aside class="option">
         <h4 class="option-name" data-optionId="<%=option.id%>" data-name="<%=option.optionName%>"><%=option.optionName%>
-          <span class="glyphicon glyphicon-plus"></span>
         </h4>
       </aside>
       <% }) %>
 
-    <button class="button" data-pollId="<%= id %>">
-      <input type="submit" name="Submit" class="btn btn-outline-info">
+    <button type="button" class="btn button" data-toggle="button" aria-pressed="false" autocomplete="off" data-pollId="<%= id %>">
+      <input type="submit" name="Submit" class="btn">
     </button>
 
 
