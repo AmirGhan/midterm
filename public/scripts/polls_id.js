@@ -11,8 +11,8 @@ $( "#options" ).sortable();
 $('.button').on('click', function(event){
   event.preventDefault();
 
-  let $url = $("#poll-template").attr("name");
-
+  let $url = $("#options").attr("name");
+  console.log($url);
  // let $pollName = $(".poll-name").text();
 
 
@@ -26,16 +26,16 @@ $('.button').on('click', function(event){
   }
   let votes = []
   for (var i = 0; i < options.length -1; i++) {
-    let obj ={}
+    let obj = {}
     let $optionId = $(".option-name").eq([i]).attr("data-optionId");
-    let $optionName = $(".option-name").eq([i]).attr("data-name"); 
+    let $optionName = $(".option-name").eq([i]).attr("data-name");
     let $optionRank = $(".option").eq([i]).attr("data-rank");
     obj.optionId = $optionId;
     obj.optionName = $optionName;
     obj.rank = $optionRank;
     votes.push(obj);
   }
-  
+
   let pollObj = {}
 
   let $pollId = $("button").attr("data-pollId");
@@ -50,9 +50,9 @@ $('.button').on('click', function(event){
     data: pollObj,
     success: function(response) {
     console.log("yeepy!")
-      
+
     }
-    
+
   })
 })
 // var children = $('#animDummy1').children();
