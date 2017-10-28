@@ -8,8 +8,9 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/polls_id.css" type="text/css" />
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
   <!-- FIND NEW jQuery UI CDN. This one isn't official, but it works, while the official isn't working for me -->
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -24,7 +25,7 @@
     </header>
 
 
-    <section id="options" name="polls/<%= id %>">
+    <section id="options" name="/polls/<%= id %>">
 
 
       <% poll.forEach(function(option) { %>
