@@ -18,3 +18,14 @@ function drawChart() {
 
   chart.draw(data, options);
 }
+$(function(){
+  console.log('connected');
+  $('.poll-button').on('click', function() {
+    if ($('#piechart').attr('hidden')){
+      $('#piechart').removeAttr('hidden');
+    } else {
+      $('#piechart').attr('hidden', true);
+    }
+
+  })
+})
