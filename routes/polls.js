@@ -10,7 +10,8 @@ module.exports = function(dataHelpers) {
     const pollId = req.params.id;
     dataHelpers.getPoll(pollId, (err, poll) => {
     var templateVars = {
-      poll: poll
+      poll: poll,
+      id: pollId
     }
       if (err) {
         res.status(500).json({ error: err.message });
@@ -18,6 +19,15 @@ module.exports = function(dataHelpers) {
         res.status(200).render('polls_id', templateVars)
       }
     });
-  });
+  }),
+
+
+
+// to VOTE
+  pollsRoutes.post("/:id", function (req, res) {
+    
+    res.send("Yeay!")
+  })
+
 return pollsRoutes;
 }
