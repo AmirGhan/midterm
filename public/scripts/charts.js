@@ -20,10 +20,26 @@ function drawChart() {
 }
 
 $(function(){
-  console.log('connected');
-  $('.poll-button').on('click', function() {
+
+
+
+  $('.poll-button').on('click', function(event) {
+    let $url = $(this).closest('#url').attr('name')
     $('#piechart').slideToggle();
   })
+  $.ajax({
+    url: $url,
+    method: 'GET',
+    dataType: 'json',
+    success: function(response) {
+      console.log(response)
+    }
+  })
+
+
+
+
+
 })
 
 // option name, all the ranks and correspoding opt ids, pollname

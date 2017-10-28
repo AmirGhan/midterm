@@ -49,19 +49,13 @@ adminsRoutes.get('/register', function(req, res) {
 
 
 
-
-
-
-
-
-
-
 //GETS
   adminsRoutes.get("/:id/polls", function(req, res) {
     const adminId = req.params.id;
     dataHelpers.getAdminPolls(adminId, (err, polls) => {
     let templateVars = {
-      polls: polls
+      polls: polls,
+      adminId: adminId
     }
       if (err) {
         res.status(500).json({ error: err.message });
