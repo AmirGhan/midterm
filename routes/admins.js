@@ -44,13 +44,28 @@ adminsRoutes.get('/register', function(req, res) {
         })
       })
     })
-    res.redirect(`/admins/${admin_id}/polls`)
+    res.status(200).render('admin_new');
+    // res.redirect(`/admins/${admin_id}/polls`)
   }),
 
 
 
 
-
+  // pollsRoutes.get("/:id", function(req, res) {
+  //   const pollId = req.params.id;
+  //   dataHelpers.getPoll(pollId, (err, poll) => {
+  //   var templateVars = {
+  //     poll: poll,
+  //     id: pollId
+  //   }
+  //   console.log(templateVars.poll)
+  //     if (err) {
+  //       res.status(500).json({ error: err.message });
+  //     } else {
+  //       res.status(200).render('polls_id', templateVars)
+  //     }
+  //   });
+  // }),
 
 
 
