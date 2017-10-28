@@ -64,9 +64,32 @@ adminsRoutes.get('/register', function(req, res) {
       }
     });
   }),
+
   adminsRoutes.get("/:id/polls/new", function(req, res){
     const adminId = req.params.id;
-    res.status(200).render('admin_new');
+
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else {
+      res.status(200).render('admin_new');
+    }
+  }),
+
+  adminsRoutes.get("/:adminId/polls/:pollId", function(req, res) {
+    let adminId = req.params.adminId;
+    let pollId = req.params.pollId;
+    console.log("admin id: " adminId, "poll id: " pollId)
+    dataHelpers.getPollResult(adminId, pollId, (err, result) => {
+
+    })
+
   })
+
+
+
+
+
+
+
 return adminsRoutes;
 }
