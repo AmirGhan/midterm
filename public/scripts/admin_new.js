@@ -12,7 +12,6 @@ $("i").on("click", function () {
 })
 
 $('.submit').on("click", function (event) {
-    event.preventDefault();
   $('.submitted').removeAttr('hidden');
 })
 
