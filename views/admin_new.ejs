@@ -3,11 +3,11 @@
 
   <head>
     <title>/admins/:id/polls/new</title>
-    <link rel="stylesheet" type="text/css" href="../styles/admin_new.css">
+    <link rel="stylesheet" type="text/css" href="/styles/admin_new.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-  crossorigin="anonymous""></script>
+  crossorigin="anonymous"></script>
 
   </head>
 
@@ -22,7 +22,7 @@
       </div>
       <section class="new-poll">
 
-        <form method="POST" action="/">
+        <form method="POST" action="./new">
           <section class="options-section">
             <textarea class="options-template" hidden></textarea>
             <p>Poll name: </p>
@@ -43,6 +43,11 @@
 
     </main>
 
-    <script type="text/javascript" src="../public/scripts/admin_new.js"></script>
+    <div class="submitted" hidden>
+      <a href"">Here is your administrative link(back to your profile): ""</a>
+      <a href"">Here is your submission link: ""</a>
+    </div>
+
+    <script type="text/javascript" src="/scripts/admin_new.js"></script>
   </body>
 </html>

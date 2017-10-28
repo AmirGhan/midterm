@@ -32,8 +32,8 @@ adminsRoutes.get('/register', function(req, res) {
   }),
 
   adminsRoutes.post("/:id/polls/new", function(req, res){
-    const options = req.query.option;
-    const pollName = req.query.pollName;
+    const options = req.body.option;
+    const pollName = req.body.pollName;
     const admin_id = req.params.id;
     const status = true;
     dataHelpers.savePoll(pollName, admin_id, status, function(err, poll_id){
@@ -44,10 +44,9 @@ adminsRoutes.get('/register', function(req, res) {
         })
       })
     })
-    res.send('Good job!')
+    res.status(200).render('admin_new');
+    // res.redirect(`/admins/${admin_id}/polls`)
   }),
-
-
 
 
 
@@ -56,7 +55,8 @@ adminsRoutes.get('/register', function(req, res) {
     const adminId = req.params.id;
     dataHelpers.getAdminPolls(adminId, (err, polls) => {
     let templateVars = {
-      polls: polls
+      polls: polls,
+      adminId: adminId
     }
       if (err) {
         res.status(500).json({ error: err.message });
@@ -68,6 +68,7 @@ adminsRoutes.get('/register', function(req, res) {
 
   adminsRoutes.get("/:id/polls/new", function(req, res){
     const adminId = req.params.id;
+
     if (err) {
       res.status(500).json({ error: err.message });
     } else {
@@ -82,6 +83,7 @@ adminsRoutes.get('/register', function(req, res) {
     dataHelpers.getPollResult(adminId, pollId, (err, result) => {
 
     })
+
   })
 
 
