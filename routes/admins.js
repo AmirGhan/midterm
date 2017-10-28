@@ -81,6 +81,7 @@ adminsRoutes.get('/register', function(req, res) {
     let pollId = req.params.pollId;
     console.log("admin id: " adminId, "poll id: " pollId)
     dataHelpers.getPollResult(adminId, pollId, (err, result) => {
+      console.log(result)
 
     })
 
