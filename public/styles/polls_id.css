@@ -1,11 +1,24 @@
 body {
   padding: 5vw;
   text-align: center;
+  background-color: #F5F5F5;
+  font-family: 'Old Standard TT', serif;
+  padding-left: 25em;
+  padding-right: 25em;
 }
-
+#options {
+  display: inline-block;
+}
 .option {
-  border: 1px solid red;
   margin: 25px 25px;
+  border: 1px solid #FFE4E1;
+  background-color: #F5F5F5;
+  border-radius: 4px;
+}
+.option:hover {
+  /*border: 3px solid #F5F5F5;*/
+  background-color: #FFC0CB;
+  border-radius: 3px;
 }
 
 span {
@@ -19,7 +32,7 @@ h3 {
 }
 
 .poll-name {
-  border: 2px solid black;
+  display: inline-block;
 }
 
 .description {
@@ -35,4 +48,14 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.btn {
+  color: black;
+  background-color: #FFB6C1;
+  font-weight: 700;
+}
+
+.jumbotron {
+  background-color: #FFE4E1;
 }
