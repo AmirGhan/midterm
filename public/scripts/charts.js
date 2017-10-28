@@ -46,9 +46,9 @@ $(function(){
 // poll.forEach(function(option) {
 //   let arr = [];
 //   let point = data-rank;
-//   let sum = sumPoint;
-//   let choiceId = data-optionId/optionId;
-//   arr.push('choiceId');
+//   let sum = sum(Point);
+//   let choiceName = data-optionName/optionName;
+//   arr.push('choiceName');
 //   arr.push(sum);
 //   return arr;
 // }

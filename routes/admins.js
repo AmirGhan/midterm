@@ -44,9 +44,9 @@ adminsRoutes.get('/register', function(req, res) {
         })
       })
     })
-    res.redirect(`/admins/${admin_id}/polls`)
+    res.status(200).render('admin_new');
+    // res.redirect(`/admins/${admin_id}/polls`)
   }),
-
 
 
 //GETS
