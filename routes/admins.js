@@ -32,8 +32,8 @@ adminsRoutes.get('/register', function(req, res) {
   }),
 
   adminsRoutes.post("/:id/polls/new", function(req, res){
-    const options = req.query.option;
-    const pollName = req.query.pollName;
+    const options = req.body.option;
+    const pollName = req.body.pollName;
     const admin_id = req.params.id;
     const status = true;
     dataHelpers.savePoll(pollName, admin_id, status, function(err, poll_id){
@@ -44,7 +44,7 @@ adminsRoutes.get('/register', function(req, res) {
         })
       })
     })
-    res.send('Good job!')
+    res.redirect(`/admins/${admin_id}/polls`)
   }),
 
 
@@ -72,11 +72,7 @@ adminsRoutes.get('/register', function(req, res) {
   }),
   adminsRoutes.get("/:id/polls/new", function(req, res){
     const adminId = req.params.id;
-    if (err) {
-      res.status(500).json({ error: err.message });
-    } else {
-      res.status(200).render('admin_new');
-    }
+    res.status(200).render('admin_new');
   })
 return adminsRoutes;
 }
