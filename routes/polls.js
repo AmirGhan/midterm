@@ -5,7 +5,7 @@ const pollsRoutes  = express.Router();
 
 var api_key = '';
 var domain = '';
-var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+// var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 module.exports = function(dataHelpers) {
 
@@ -48,10 +48,10 @@ module.exports = function(dataHelpers) {
         }
       })
     })
-    mailgun.messages().send(data, function(error, body) {
-      console.log('email');
-      console.log(body);
-    });
+    // mailgun.messages().send(data, function(error, body) {
+    //   console.log('email');
+    //   console.log(body);
+    // });
       res.status(200)
   })
 

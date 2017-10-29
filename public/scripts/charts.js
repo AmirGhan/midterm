@@ -1,23 +1,4 @@
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-
-  var data = google.visualization.arrayToDataTable([
-    ['Option', 'Rank'],
-    ['Option-Name', 'Rank-Points-Sum'],
-    ['Option-Name', 'Rank-Points-Sum'],
-    ['Option-Name', 'Rank-Points-Sum']
-  ]);
-
-  var options = {
-    title: 'POLL NAME'
-  };
-
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-  chart.draw(data, options);
-}
 
 $(function(){
 
@@ -32,7 +13,27 @@ $(function(){
       method: 'GET',
       dataType: 'json',
       success: function(response) {
-        console.log("hi");
+        for (let key in response) {
+          console.log(key, response[key]);
+          google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+  var data = google.visualization.arrayToDataTable([
+    ['Option', 'Rank'],
+    [key, response[key]]
+  ]);
+
+  var options = {
+    title: 'POLL NAME'
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+  chart.draw(data, options);
+}
+        }
       }
     })
   })
