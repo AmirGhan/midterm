@@ -20,7 +20,7 @@ $('.button').on('click', function(event){
   var options = $('#options').children();
 
 
-  for (var i = 1; i < options.length; i++) {
+  for (var i = options.length; i < 0; i--) {
     options.eq(i-1).attr('data-rank', i);
   }
   let votes = []
