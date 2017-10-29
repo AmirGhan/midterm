@@ -36,7 +36,8 @@ else if ($('#adm-poll-template active')) {
       method: 'PUT',
       dataType: 'json',
       success: function(response) {
-        console.log("hi");
+        location.reload()
+        
       }
     })
   })

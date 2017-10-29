@@ -3,12 +3,20 @@ body {
 }
 
 .body {
-  margin-top: 110px;
+  margin-top: 145px;
   font-family: 'Old Standard TT', serif;
   text-align: center;
   margin-left: 25em;
   margin-right: 25em;
-  margin-bottom: 75px;
+  margin-bottom: 80px;
+}
+
+.navbar {
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: 'Old Standard TT', serif;
+  background: url(pie_chart.png);
+  height: 110px;
 }
 
 .row {
