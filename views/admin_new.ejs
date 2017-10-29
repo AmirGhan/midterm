@@ -22,11 +22,15 @@
 
         <form method="POST" action="./new">
           <section class="options-section">
+
             <textarea class="options-template" hidden></textarea>
+
             <p>Poll name: </p>
             <textarea name="pollName" placeholder="What movie are we gonna watch this Tuesday?"></textarea>
+
             <p>Option: </p>
             <textarea name="option" placeholder="Blade Runner 2049"></textarea>
+
             <p id="p-template">Option: </p>
             <textarea class="option" name="option" placeholder="Suburbicon"></textarea>
           </section>
@@ -42,8 +46,8 @@
     </main>
 
     <div class="submitted" hidden>
-      <a href "">Here is your administrative link(back to your profile): ""</a>
-      <a href "">Here is your submission link: ""</a>
+      <a href="#">Admin LINK</a>
+      <a href="#">User LINK</a>
     </div>
 
     <% include partials/_footer.ejs %>
