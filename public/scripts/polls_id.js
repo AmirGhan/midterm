@@ -11,6 +11,7 @@ $(() => {
     $('.completed').removeAttr('hidden');
 
     var options = $('#options').find('aside');
+
     optionNum = 0;
     for (var i = options.length; i > 0; i--) {
       options.eq(optionNum).attr('data-rank', i);
@@ -18,7 +19,8 @@ $(() => {
     }
 
     let votes = []
-    for (var i = 0; i < options.length - 1; i++) {
+
+    for (var i = 0; i < options.length; i++) {
       let obj = {}
       let $optionId = $(".option-name").eq([i]).attr("data-optionId");
       let $optionName = $(".option-name").eq([i]).attr("data-name");
@@ -30,10 +32,11 @@ $(() => {
     }
 
     let pollObj = {}
-
     let $pollId = $("button").attr("data-pollId");
     pollObj.id = $pollId;
     pollObj.options = votes;
+
+    console.log(pollObj)
 
     $.ajax({
       url: $url,
