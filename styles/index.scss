@@ -1,6 +1,7 @@
 body {
   background-color: #D3D3D3;
 }
+
 .body {
   margin-top: 145px;
   font-family: 'Old Standard TT', serif;
@@ -9,12 +10,13 @@ body {
   margin-right: 25em;
   margin-bottom: 80px;
 }
+
 .navbar {
   // background-color: #A9A9A9;
   padding-left: 30px;
   padding-right: 30px;
   font-family: 'Old Standard TT', serif;
-  background: url(pie_chart.png);
+  background: url("pie_chart.png");
   height: 110px;
 }
 
@@ -56,6 +58,7 @@ a:before {
   -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
+
 a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);

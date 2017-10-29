@@ -22,9 +22,11 @@ body {
   /*background: url(pie_chart.png);*/
   /*background-size: 580px 190px;*/
 }
+
 article {
   padding: 0.5rem;
 }
+
 button {
   padding: 0.5rem;
 }
@@ -32,23 +34,25 @@ button {
 .fa {
   padding-right: 1em;
 }
+
 .adm-poll-template {
   padding-left: 1em;
   padding-right: 1em;
 }
+
 .userlink {
   margin-left: 1em;
   color: black;
 }
 
-article > a {
+article>a {
   position: relative;
   color: #2F4F4F;
   text-decoration: none;
   padding: 1rem;
 }
 
-article > a:hover {
+article>a:hover {
   color: #2F4F4F;
   text-decoration: none;
   padding: 1rem;
@@ -68,11 +72,13 @@ a:before {
   -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
+
 a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+
 li {
   list-style: none;
   float: right;
@@ -86,14 +92,16 @@ ul {
   flex-direction: column;
   flex-wrap: wrap;
 }
-span{
+
+span {
   float: right;
 }
 
-li > a {
+li>a {
   float: right;
 }
-li > p {
+
+li>p {
   margin-bottom: -3px;
 }
 

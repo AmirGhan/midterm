@@ -1,9 +1,10 @@
-body{
+body {
   padding-right: 18em;
   padding-left: 18em;
   padding-top: 10em;
   text-align: center;
 }
+
 a {
   position: relative;
   color: #2F4F4F;
@@ -29,6 +30,7 @@ a:before {
   -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
+
 a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
@@ -42,6 +44,7 @@ a:hover:before {
 .form-control:hover {
   background-color: #FFB6C1;
 }
+
 .navbar {
   height: 83px;
   background-color: #FFE4E1;

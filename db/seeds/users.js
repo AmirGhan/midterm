@@ -1,5 +1,3 @@
-// should del stay in the end?
-
 exports.seed = function(knex, Promise) {
   return Promise.all([
     knex('admins').del(),

@@ -4,26 +4,7 @@
   text-align: right;
   padding-right: 10px;
   position: absolute;
-  width:100%;
-  height:auto;
+  width: 100%;
+  height: auto;
   padding-top: 15px;
 }
-
-
-/*<% include partials/_header.ejs %>*/
-
-
-/*<nav class="navbar fixed-top navbar-light">
-  <span>
-    <ul>
-      <li>
-        <p>
-          <%=polls.email%>
-        </p>
-      </li>
-      <li>
-        <a href="./polls/new">Create New Poll</a>
-      </li>
-    </ul>
-  </span>
-</nav>*/

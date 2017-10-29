@@ -4,7 +4,6 @@ const express = require('express');
 const adminsRoutes = express.Router();
 const userAuth = require('../server/user-auth.js');
 
-
 // var api_key = 'api_key'
 // var domain = 'domain'
 
@@ -56,7 +55,6 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
         //   text: 'Congrats on creating a new poll! In case you missed the extremely important links to get you going from this point on, here they are: Your profile link & The link you want to send to your friends. Have a good day!'
         // };
 
-
         // mailgun.messages().send(data, function(error, body) {
         //   console.log('email');
         //   console.log(body);
@@ -91,32 +89,30 @@ adminsRoutes.get("/:id/polls/new", function(req, res) {
   // if (err) {
   //   res.status(500).json({error: err.message});
   // } else {
-    res.status(200).render('admin_new');
+  res.status(200).render('admin_new');
   // }
 }),
-
 
 // to see the result of a specific poll on admin's page
 adminsRoutes.get("/:adminId/polls/:pollId", function(req, res) {
   let adminId = req.params.adminId;
   let pollId = req.params.pollId;
   dataHelpers.getPollResult(adminId, pollId, (err, result) => {
-  let resultsObj = {};
-    result.forEach(function(item){
+    let resultsObj = {};
+    result.forEach(function(item) {
       let option = item.optionName;
       resultsObj[option] = 0;
     })
 
-    result.forEach(function(item){
+    result.forEach(function(item) {
       let option = item.optionName;
       resultsObj[option] += item.rank;
     })
-  console.log(resultsObj);
-  setTimeout(() => {
+    console.log(resultsObj);
+    setTimeout(() => {
       res.json(resultsObj);
     }, 100);
   })
-
 
 }),
 
@@ -127,21 +123,12 @@ adminsRoutes.put("/:adminId/polls/:pollId", function(req, res) {
   let pollId = req.params.pollId;
   console.log("adminId: ", adminId, "pollId", pollId)
   dataHelpers.closePoll(adminId, pollId, (err, result) => {
-  
-        res.json(result)
 
-  
+    res.json(result)
 
   })
 
 })
-
-
-
-
-
-
-
 
 return adminsRoutes;
 }

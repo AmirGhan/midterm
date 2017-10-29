@@ -2,7 +2,6 @@ header .poll-name {
   display: inline-block;
 }
 
-
 header .admin-email {
   float: right;
   display: inline-block;
@@ -11,4 +10,5 @@ header .admin-email {
 .poll {
   margin: 100px 0px;
 }
+
 ~

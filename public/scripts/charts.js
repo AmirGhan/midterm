@@ -8,7 +8,9 @@ $(function() {
       method: 'GET',
       dataType: 'json',
       success: function(response) {
-        let arr = [['Option', 'Rank']];
+        let arr = [
+          ['Option', 'Rank']
+        ];
         for (let key in response) {
           arr.push([key, response[key]]);
         }

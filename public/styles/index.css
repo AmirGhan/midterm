@@ -6,8 +6,8 @@ body {
   margin-top: 145px;
   font-family: 'Old Standard TT', serif;
   text-align: center;
-  margin-left: 25em;
-  margin-right: 25em;
+  margin-left: 10vw;
+  margin-right: 10vw;
   margin-bottom: 80px;
 }
 
@@ -15,7 +15,7 @@ body {
   padding-left: 30px;
   padding-right: 30px;
   font-family: 'Old Standard TT', serif;
-  background: url(pie_chart.png);
+  background: url("pie_chart.png");
   height: 110px;
 }
 
