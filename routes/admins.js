@@ -85,11 +85,14 @@ adminsRoutes.get("/:id/polls", function(req, res) {
 
 adminsRoutes.get("/:id/polls/new", function(req, res) {
   const adminId = req.params.id;
+  let templateVars = {
+      adminId: adminId
+    }
 
   // if (err) {
   //   res.status(500).json({error: err.message});
   // } else {
-  res.status(200).render('admin_new');
+  res.status(200).render('admin_new', templateVars);
   // }
 }),
 
@@ -129,6 +132,8 @@ adminsRoutes.put("/:adminId/polls/:pollId", function(req, res) {
   })
 
 })
+
+
 
 return adminsRoutes;
 }

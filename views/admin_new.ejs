@@ -34,8 +34,11 @@
           <i class="glyphicon glyphicon-plus"></i>
           <br>
           <input class="submit" type="submit" value="Submit">
-          <a href="/admins/:id" id="cancel">Cancel</a>
 
+        </form>
+        <form method="GET" action="/admins/<%=adminId%>/polls">
+          <input type="submit" value="cancel" id="cancel">
+          
         </form>
       </section>
 

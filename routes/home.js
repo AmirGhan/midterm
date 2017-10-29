@@ -22,5 +22,7 @@ module.exports = function(authHelpers) {
     })
     res.send('You made it')
   })
+
+
   return homeRoutes;
 }
