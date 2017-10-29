@@ -36,7 +36,7 @@
 
                 <div id="piechart" style="width: 500px; height: 300px;" hidden></div>
 
-                <a class="userlink" href="${a.link}">USER LINK</a>
+                <a class="userlink" href="/polls/<%= a.id %>">localhost:8080/<%= a.id %></a>
                 <a href="#" id="end-poll" class="endPoll-url" name="/admins/<%=adminId%>/polls/<%=a.id%>">END POLL</a>
               </article>
               <% } %>
