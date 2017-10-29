@@ -4,8 +4,8 @@ const express = require('express');
 const adminsRoutes = express.Router();
 const userAuth = require('../server/user-auth.js');
 
-var api_key = '';
-var domain = '';
+var api_key = 'key-a2cf31de4910b2743d7a19585c3f4c85';
+var domain = 'sandboxcc6313cdfcfd4c37a39123dd094ce1ab.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 module.exports = function(dataHelpers) {
@@ -47,8 +47,8 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
       dataHelpers.saveOption(Number(poll_id), option, function(err, result) {
         console.log(err);
         var data = {
-          from: 'Dilan <dilannebioglu@gmail.com>',
-          to: 'nebiogludilan@gmail.com',
+          from: 'Riley <t.rileygowan@gmail.com>',
+          to: 't.rileygowan@gmail.com',
           subject: 'Hello from Decision Maker',
           text: 'Congrats on creating a new poll! In case you missed the extremely important links to get you going from this point on, here they are: Your profile link & The link you want to send to your friends. Have a good day!'
         };
@@ -82,22 +82,29 @@ adminsRoutes.get("/:id/polls", function(req, res) {
 adminsRoutes.get("/:id/polls/new", function(req, res) {
   const adminId = req.params.id;
 
-  if (err) {
-    res.status(500).json({error: err.message});
-  } else {
+  // if (err) {
+  //   res.status(500).json({error: err.message});
+  // } else {
     res.status(200).render('admin_new');
-  }
+  // }
 }),
 
 adminsRoutes.get("/:adminId/polls/:pollId", function(req, res) {
   let adminId = req.params.adminId;
   let pollId = req.params.pollId;
-  console.log("admin id: ", adminId, "poll id: ", pollId)
   dataHelpers.getPollResult(adminId, pollId, (err, result) => {
-    console.log("*****MATH GOES HERE******", result)
-
+  let resultsObj = {};
+    result.forEach(function(item){
+      let option = item.optionName;
+      resultsObj[option] = 0;
+    })
+    result.forEach(function(item){
+      let option = item.optionName;
+      resultsObj[option] += item.rank;
+    })
+  console.log(resultsObj);
   })
-  res.send('hi')
+  res.json(resultsObj)
 
 })
 // ,
