@@ -3,8 +3,8 @@
 const express = require('express');
 const pollsRoutes  = express.Router();
 
-var api_key = '';
-var domain = '';
+var api_key = 'key-a2cf31de4910b2743d7a19585c3f4c85';
+var domain = 'sandboxcc6313cdfcfd4c37a39123dd094ce1ab.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 module.exports = function(dataHelpers) {

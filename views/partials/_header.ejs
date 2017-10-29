@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body>
-    <header> DECISION MAKER </header>
-      <form method="POST" action="/logout">
-        <button type="submit">LOGOUT</button>
-      </form>
-        <a href="/register">REGISTER</a>
+        <nav class="navbar fixed-top navbar-light">
+          <a class="register" href="/register">REGISTER</a>
+          <form action="/login" method="POST">
+            <div class="row">
+              <div class="col">
+                <input class="form-control" id="email" type="email" name="email" placeholder="Email" />
+              </div>
+              <div class="col">
+                <input class="form-control" id="password" type="password" name="password" placeholder="Password" />
+              </div>
+              <p>
+                <button class="form-control" type="submit">SIGN IN</button>
+              </p>
+              <p>
+                EMAIL
+              </p>
+              <p>
+                <button class="form-control" type="submit">LOGOUT</button>
+              </p>
+            </div>
+          </form>
+        </nav>
   </body>
 </html>
