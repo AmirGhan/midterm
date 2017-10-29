@@ -44,9 +44,7 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
   const status = true;
   dataHelpers.savePoll(pollName, admin_id, status, function(err, poll_id) {
     options.forEach(function(option) {
-      console.log(option);
       dataHelpers.saveOption(Number(poll_id), option, function(err, result) {
-
         // console.log(err);
         // var data = {
         //   from: 'Riley <t.rileygowan@gmail.com>',
