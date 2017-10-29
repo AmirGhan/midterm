@@ -29,8 +29,16 @@ module.exports = function(dataHelpers) {
 
 // to VOTE
   pollsRoutes.post("/:id", function (req, res) {
+    let pollId = req.params.id;
     let pollObj = req.body;
     let pollOpt = pollObj.options;
+    let link = "/polls/"+ pollId
+    var data = {
+      from: 'Dilan <dilannebioglu@gmail.com>',
+      to: 'nebiogludilan@gmail.com',
+      subject: 'Hello from Decision Maker',
+      html: 'Somebody just voted! You can checkout the current results from your profile! <a href = link>Your profile link</a> Have a good day!'
+    };
 
     pollOpt.forEach(function(opt){
       dataHelpers.addVotes(opt, (err, result)=> {
@@ -38,20 +46,13 @@ module.exports = function(dataHelpers) {
           res.status(500).json({ error: err.message });
           return
         }
-        var data = {
-          from: 'Dilan <dilannebioglu@gmail.com>',
-          to: 'nebiogludilan@gmail.com',
-          subject: 'Hello from Decision Maker',
-          text: 'Somebody just voted! You can checkout the current results from your profile! Your profile link. Have a good day!'
-        };
-
-        mailgun.messages().send(data, function(error, body) {
-          console.log('email');
-          console.log(body);
-        });
       })
     })
-      res.status(200).send('yay')
+    mailgun.messages().send(data, function(error, body) {
+      console.log('email');
+      console.log(body);
+    });
+      res.status(200)
   })
 
 return pollsRoutes;

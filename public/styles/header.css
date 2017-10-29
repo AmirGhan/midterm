@@ -1,14 +1,30 @@
+.navbar {
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: 'Old Standard TT', serif;
+  background: url(pie_chart.png);
+  height: 110px;
+}
+
+
+/*
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body>
     <header> DECISION MAKER </header>
+    <!-- <% if (user) { %> -->
+      <p>
+        <%= user.email %>
+      </p>
       <form method="POST" action="/logout">
         <button type="submit">LOGOUT</button>
       </form>
+      <!-- <% } else { %> -->
         <a href="/register">REGISTER</a>
+        <!-- <% } %> -->
   </body>
 </html>
+*/

@@ -11,13 +11,13 @@ body {
   margin-bottom: 80px;
 }
 
-.navbar {
+/*.navbar {
   padding-left: 30px;
   padding-right: 30px;
   font-family: 'Old Standard TT', serif;
   background: url(pie_chart.png);
   height: 110px;
-}
+}*/
 
 .row {
   margin-top: 9px;
