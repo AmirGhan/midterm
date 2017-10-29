@@ -3,6 +3,9 @@
 const express = require('express');
 const pollsRoutes  = express.Router();
 
+var api_key = '';
+var domain = '';
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 module.exports = function(dataHelpers) {
 
@@ -35,7 +38,17 @@ module.exports = function(dataHelpers) {
           res.status(500).json({ error: err.message });
           return
         }
+        var data = {
+          from: 'Dilan <dilannebioglu@gmail.com>',
+          to: 'nebiogludilan@gmail.com',
+          subject: 'Hello from Decision Maker',
+          text: 'Somebody just voted! You can checkout the current results from your profile! Your profile link. Have a good day!'
+        };
 
+        mailgun.messages().send(data, function(error, body) {
+          console.log('email');
+          console.log(body);
+        });
       })
     })
       res.status(200).send('yay')
