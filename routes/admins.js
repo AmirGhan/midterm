@@ -68,6 +68,8 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
 }),
 
 //GETS
+
+// admin's page
 adminsRoutes.get("/:id/polls", function(req, res) {
   const adminId = req.params.id;
   dataHelpers.getAdminPolls(adminId, (err, polls) => {
@@ -94,7 +96,7 @@ adminsRoutes.get("/:id/polls/new", function(req, res) {
 }),
 
 
-
+// to see the result of a specific poll on admin's page
 adminsRoutes.get("/:adminId/polls/:pollId", function(req, res) {
   let adminId = req.params.adminId;
   let pollId = req.params.pollId;
@@ -125,6 +127,10 @@ adminsRoutes.put("/:adminId/polls/:pollId", function(req, res) {
   let pollId = req.params.pollId;
   console.log("adminId: ", adminId, "pollId", pollId)
   dataHelpers.closePoll(adminId, pollId, (err, result) => {
+  
+        res.json(result)
+
+  
 
   })
 
