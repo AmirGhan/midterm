@@ -24,16 +24,18 @@ $(function(){
 
 
   $('.poll-button').on('click', function(event) {
+    event.preventDefault();
     let $url = $(this).closest('#url').attr('name')
+    console.log($url)
     $('#piechart').slideToggle();
-  })
-  $.ajax({
-    url: $url,
-    method: 'GET',
-    dataType: 'json',
-    success: function(response) {
-      console.log(response)
-    }
+      $.ajax({
+      url: $url,
+      method: 'GET',
+      dataType: 'json',
+      success: function(response) {
+        console.log(response)
+      }
+    })
   })
 
 
