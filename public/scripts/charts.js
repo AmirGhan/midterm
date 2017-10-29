@@ -1,10 +1,5 @@
-
-
 $(function(){
-
-
-
-  $('.poll-button').on('click', function(event) {
+  $('#chart-button').on('click', function(event) {
     event.preventDefault();
     let $url = $(this).closest('#url').attr('name')
     $('#piechart').slideToggle();
@@ -37,20 +32,4 @@ function drawChart() {
       }
     })
   })
-
-
-
-
-
 })
-
-// option name, all the ranks and correspoding opt ids, pollname
-// poll.forEach(function(option) {
-//   let arr = [];
-//   let point = data-rank;
-//   let sum = sum(Point);
-//   let choiceName = data-optionName/optionName;
-//   arr.push('choiceName');
-//   arr.push(sum);
-//   return arr;
-// }

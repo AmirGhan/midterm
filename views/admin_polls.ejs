@@ -28,7 +28,7 @@
             <% if(a.status){ %>
               <article id="url" name="/admins/<%=adminId%>/polls/<%=a.id%>">
                 <!-- <i class="fa fa-pie-chart fa-3x green" aria-hidden="true"></i> -->
-                <button class="poll-button btn btn-outline-secondary">
+                <button id="chart-button" class="poll-button btn btn-outline-secondary">
                 <%=a.pollName%>
               </button>
                 <div id="piechart" style="width: 500px; height: 300px;" hidden></div>
