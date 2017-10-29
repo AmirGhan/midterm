@@ -1,25 +1,11 @@
 .body {
-  /*margin-top: 90px;*/
+  margin-top: 110px;
   font-family: 'Old Standard TT', serif;
   font-weight: 700;
   text-align: center;
   margin-left: 25em;
   margin-right: 25em;
   /*margin-bottom: 80px;*/
-}
-
-.navbar {
-  background-color: #AC8989;
-  font-weight: 700;
-  padding-left: 30px;
-  padding-right: 30px;
-  font-family: 'Old Standard TT', serif;
-  height: 83px;
-  margin-bottom: 50px;
-}
-
-.nav-item {
-  width: 150px;
 }
 
 body {
@@ -36,6 +22,12 @@ body {
   /*background: url(pie_chart.png);*/
   /*background-size: 580px 190px;*/
 }
+article {
+  padding: 0.5rem;
+}
+button {
+  padding: 0.5rem;
+}
 
 .fa {
   padding-right: 1em;
@@ -48,19 +40,18 @@ body {
   margin-left: 1em;
   color: black;
 }
-.green {
-  color:green;
-}
 
-a {
+article > a {
   position: relative;
   color: #2F4F4F;
   text-decoration: none;
+  padding: 1rem;
 }
 
-a:hover {
+article > a:hover {
   color: #2F4F4F;
   text-decoration: none;
+  padding: 1rem;
 }
 
 a:before {

@@ -11,13 +11,13 @@ body {
 }
 .option {
   margin: 25px 25px;
-  border: 1px solid #FFE4E1;
+  border: 1px solid #9EADB9;
   background-color: #F5F5F5;
   border-radius: 4px;
 }
 .option:hover {
   /*border: 3px solid #F5F5F5;*/
-  background-color: #FFC0CB;
+  background-color: #9EADB9;
   border-radius: 3px;
 }
 
@@ -52,10 +52,10 @@ h3 {
 
 .btn {
   color: black;
-  background-color: #FFB6C1;
+  background-color: #9EADB9;
   font-weight: 700;
 }
 
 .jumbotron {
-  background-color: #FFE4E1;
+  background-color: #E9ECEF;
 }

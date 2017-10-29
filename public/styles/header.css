@@ -3,28 +3,36 @@
   padding-right: 30px;
   font-family: 'Old Standard TT', serif;
   background: url(pie_chart.png);
-  height: 110px;
+  height: 84px;
+}
+a.register {
+  position: relative;
+  color: #2F4F4F;
+  text-decoration: none;
 }
 
+a.register:hover {
+  color: #2F4F4F;
+  text-decoration: none;
+}
 
-/*
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-  </head>
-  <body>
-    <header> DECISION MAKER </header>
-    <!-- <% if (user) { %> -->
-      <p>
-        <%= user.email %>
-      </p>
-      <form method="POST" action="/logout">
-        <button type="submit">LOGOUT</button>
-      </form>
-      <!-- <% } else { %> -->
-        <a href="/register">REGISTER</a>
-        <!-- <% } %> -->
-  </body>
-</html>
-*/
+a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #2F4F4F;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}

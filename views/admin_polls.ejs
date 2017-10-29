@@ -6,48 +6,32 @@
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700" rel="stylesheet">
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/admin.css" type="text/css" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
   <script type="text/javascript" src="/scripts/charts.js"></script>
-
   <!-- FIND NEW jQuery UI CDN. This one isn't official, but it works, while the official isn't working for me -->
-  <script src="https://use.fontawesome.com/c0ee90dc6d.js"></script>
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-light">
-    <span>
-      <ul>
-        <li>
-          <p>
-            <%=polls.email%>
-          </p>
-        </li>
-        <li>
-          <a href="./polls/new">Create New Poll</a>
-        </li>
-      </ul>
-    </span>
-  </nav>
-  <div class="body forImg">
-    <div class="jumbotron">
-      <h3 class="display-3">ACTIVE POLLS</h3>
-      <p class="lead inactive">There are no active polls to show...</p>
+  <% include partials/_header.ejs %>
 
+    <div class="body forImg">
+      <div class="jumbotron">
+        <h3 class="display-3">ACTIVE POLLS</h3>
+        <p class="lead inactive">There are no active polls to show...</p>
 
-    <section id="adm-poll-template active">
-      <% polls.forEach(function(a) { %>
-        <% if(a.status){ %>
-            <article id="url" name="/admins/<%=adminId%>/polls/<%=a.id%>">
-              <!-- <i class="fa fa-pie-chart fa-3x green" aria-hidden="true"></i> -->
-              <button class="poll-button">
+        <section id="adm-poll-template active">
+          <% polls.forEach(function(a) { %>
+            <% if(a.status){ %>
+              <article id="url" name="/admins/<%=adminId%>/polls/<%=a.id%>">
+                <!-- <i class="fa fa-pie-chart fa-3x green" aria-hidden="true"></i> -->
+                <button class="poll-button btn btn-outline-secondary">
                 <%=a.pollName%>
               </button>
+
               <div id="piechart" style="width: 500px; height: 300px;" hidden></div>
               <a class="userlink" href="${a.link}">USER LINK</a>
               <a href="#" id="end-poll" class="endPoll-url" name="/admins/<%=adminId%>/polls/<%=a.id%>">END POLL</a>
@@ -61,28 +45,32 @@
 
     </div>
 
-    <div class="forImg">
-      <hr class="my-4">
-      <div class="jumbotron">
-        <h3 class="display-3">COMPLETED POLLS</h3>
-        <p class='complete'>There are no completed polls to show...</p>
-        <% polls.forEach(function(a) { %>
-          <% if(!a.status){ %>
-            <section id="adm-poll-template completed">
-              <article>
-                <!-- <i class="fa fa-pie-chart fa-2x red" aria-hidden="true"></i> -->
-                <button class="poll-button"><%=a.pollName%></button>
-                <div id="piechart" style="width: 500px; height: 300px;" hidden></div>
-              </article>
-            </section>
-            <% } %>
-              <% }) %>
+
+
       </div>
+
+      <div class="forImg">
+        <hr class="my-4">
+        <div class="jumbotron">
+          <h3 class="display-3">COMPLETED POLLS</h3>
+          <p class='complete'>There are no completed polls to show...</p>
+          <% polls.forEach(function(a) { %>
+            <% if(!a.status){ %>
+              <section id="adm-poll-template completed">
+                <article>
+                  <!-- <i class="fa fa-pie-chart fa-2x red" aria-hidden="true"></i> -->
+                  <button class="poll-button"><%=a.pollName%></button>
+                  <div id="piechart" style="width: 500px; height: 300px;" hidden></div>
+                </article>
+              </section>
+              <% } %>
+                <% }) %>
+        </div>
+      </div>
+
     </div>
-
-  </div>
-
-  <script type="text/javascript" src="/scripts/admin_polls.js"></script>
+    <% include partials/_footer.ejs %>
+      <script type="text/javascript" src="/scripts/admin_polls.js"></script>
 </body>
 
 </html>

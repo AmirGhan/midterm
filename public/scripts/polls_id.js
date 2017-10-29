@@ -11,18 +11,18 @@ $( "#options" ).sortable();
 $('.button').on('click', function(event){
   event.preventDefault();
   let $url = $("#options").attr("name");
-  console.log($url);
  // let $pollName = $(".poll-name").text();
-
-
   $('.completed').removeAttr('hidden');
 
-  var options = $('#options').children();
 
 
-  for (var i = 1; i < options.length; i++) {
-    options.eq(i-1).attr('data-rank', i);
+  var options = $('#options').find('aside');
+  optionNum = 0;
+  for (var i = options.length; i > 0 ; i--) {
+    options.eq(optionNum).attr('data-rank', i);
+    optionNum ++;
   }
+
   let votes = []
   for (var i = 0; i < options.length -1; i++) {
     let obj = {}
