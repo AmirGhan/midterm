@@ -30,7 +30,7 @@ else if ($('#adm-poll-template active')) {
   $('#end-poll').on('click', function(event) {
     event.preventDefault();
     let $url = $(this).closest('.endPoll-url').attr('name');
-    
+
       $.ajax({
       url: $url,
       method: 'PUT',
