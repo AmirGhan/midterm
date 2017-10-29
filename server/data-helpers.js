@@ -66,7 +66,7 @@ module.exports = function makeDataHelpers(knex) {
       callback(err)
     })
   },
-  
+
   addVotes: function(option, callback) {
     knex('votes')
     .insert({option_id: option.optionId, rank: option.rank})
@@ -76,6 +76,23 @@ module.exports = function makeDataHelpers(knex) {
     .catch(function(err) {
       callback(err)
     })
+  },
+
+  getPollResult: function(adminId, pollId, callback) {
+    knex('admins')
+    .join('polls', 'admins.id', '=', 'polls.admin_id')
+    .join('options', 'polls.id', '=', 'options.poll_id')
+    .join('votes', 'options.id', '=', 'votes.option_id')
+    .select('*')
+    .where('admins.id', '=', adminId)
+    .andWhere('polls.id', '=', pollId)
+    .then(function(result) {
+      callback(null, result)
+    })
+    .catch(function(err) {
+      callback(err)
+    })
   }
+  
   }
 };
