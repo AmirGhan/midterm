@@ -4,17 +4,9 @@
   font-family: 'Old Standard TT', serif;
   background: url(pie_chart.png);
   height: 84px;
-  font-size: 15px;
-  float: right;
-}
-p{
-  margin-left: 75vw;
-  display: inline;
 }
 
-
-
-/*a.register {
+a.register {
   position: relative;
   color: #2F4F4F;
   text-decoration: none;
@@ -44,4 +36,4 @@ a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
-}*/
+}
