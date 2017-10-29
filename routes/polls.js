@@ -16,12 +16,16 @@ module.exports = function(dataHelpers) {
       poll: poll,
       id: pollId
     }
-    console.log(templateVars.poll)
+    console.log(templateVars.poll[0].status)
+    if (templateVars.poll[0].status === true) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
         res.status(200).render('polls_id', templateVars)
       }
+    } else {
+      res.send("This poll has been closed!") ///// Style this if we have time
+    }
     });
   }),
 

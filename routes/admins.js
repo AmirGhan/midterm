@@ -4,8 +4,10 @@ const express = require('express');
 const adminsRoutes = express.Router();
 const userAuth = require('../server/user-auth.js');
 
+
 // var api_key = 'api_key'
 // var domain = 'domain'
+
 // var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 module.exports = function(dataHelpers) {
@@ -45,6 +47,7 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
     options.forEach(function(option) {
       console.log(option);
       dataHelpers.saveOption(Number(poll_id), option, function(err, result) {
+
         // console.log(err);
         // var data = {
         //   from: 'Riley <t.rileygowan@gmail.com>',
@@ -52,6 +55,7 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
         //   subject: 'Hello from Decision Maker',
         //   text: 'Congrats on creating a new poll! In case you missed the extremely important links to get you going from this point on, here they are: Your profile link & The link you want to send to your friends. Have a good day!'
         // };
+
 
         // mailgun.messages().send(data, function(error, body) {
         //   console.log('email');
@@ -89,6 +93,8 @@ adminsRoutes.get("/:id/polls/new", function(req, res) {
   // }
 }),
 
+
+
 adminsRoutes.get("/:adminId/polls/:pollId", function(req, res) {
   let adminId = req.params.adminId;
   let pollId = req.params.pollId;
@@ -108,20 +114,28 @@ adminsRoutes.get("/:adminId/polls/:pollId", function(req, res) {
       res.json(resultsObj);
     }, 100);
   })
-  // res.json(resultsObj)
-  // console.log(resultsObj);
+
+
+}),
+
+// PUT ------- TO CLOSE A POLL ---------
+
+adminsRoutes.put("/:adminId/polls/:pollId", function(req, res) {
+  let adminId = req.params.adminId;
+  let pollId = req.params.pollId;
+  console.log("adminId: ", adminId, "pollId", pollId)
+  dataHelpers.closePoll(adminId, pollId, (err, result) => {
+
+  })
+
 })
-// ,
-//
-// adminsRoutes.get("/:adminId/polls/:pollId", function(req, res) {
-//   let adminId = req.params.adminId;
-//   let pollId = req.params.pollId;
-//   console.log("admin id: " adminId, "poll id: " pollId)
-//   dataHelpers.getPollResult(adminId, pollId, (err, result) => {
-//
-//   })
-//
-// })
+
+
+
+
+
+
+
 
 return adminsRoutes;
 }

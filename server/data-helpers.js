@@ -92,7 +92,20 @@ module.exports = function makeDataHelpers(knex) {
     .catch(function(err) {
       callback(err)
     })
+  },
+
+  closePoll: function(adminId, pollId, callback) {
+    knex('polls')
+    .where('polls.admin_id', '=', adminId)
+    .andWhere('polls.id', '=', pollId)
+    .update('status', 'false')
+    .then(function(result) {
+      callback(null, result)
+    })
+    .catch(function(err) {
+      callback(err)
+    })
   }
-  
+
   }
 };
