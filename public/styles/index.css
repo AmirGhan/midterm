@@ -3,7 +3,7 @@ body {
 }
 
 .body {
-  margin-top: 155px;
+  margin-top: 145px;
   font-family: 'Old Standard TT', serif;
   text-align: center;
   margin-left: 25em;
@@ -16,7 +16,7 @@ body {
   padding-right: 30px;
   font-family: 'Old Standard TT', serif;
   background: url(pie_chart.png);
-  height: 146px;
+  height: 110px;
 }
 
 .row {
