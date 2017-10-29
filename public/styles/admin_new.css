@@ -11,3 +11,7 @@
 .new-poll {
   margin-top: 115px;
 }
+
+form {
+  height: 100%;
+}
