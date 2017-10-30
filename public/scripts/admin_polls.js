@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-  alert('connected');
   if ($('#adm-poll-template completed')) {
     $('.inactive').remove();
   } else if ($('#adm-poll-template active')) {
