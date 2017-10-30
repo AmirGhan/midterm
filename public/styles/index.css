@@ -19,12 +19,20 @@ body {
   height: 110px;
 }
 
+.title {
+  font-size: 4.5vw;
+  padding-bottom: 8px;
+}
+
 .row {
+  padding-right: 30px;
   margin-top: 9px;
   padding-top: 4px;
 }
 
 li {
+  width: 27vw;
+  margin: 0 auto;
   border: 1px solid #000;
   list-style: none;
 }
