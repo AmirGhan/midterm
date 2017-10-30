@@ -35,7 +35,7 @@
                             <button class="poll-button btn btn-dark">
                               <%=a.pollName%>
                             </button>
-                            <a class="userlink prettyLink" href="/polls/<%=a.id%>/">http://localhost:8080/polls/<%=a.id%>/</a>
+                            <a class="userlink prettyLink" href="/polls/<%=a.id%>/"><%=a.id%></a>
                             <a href="#" id="end-poll" class="endPoll-url prettyLink" name="/admins/<%=adminId%>/polls/<%=a.id%>">END POLL</a>
                           </article>
                           <% } %>
