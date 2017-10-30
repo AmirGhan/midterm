@@ -3,7 +3,8 @@
 const express = require('express');
 const pollsRoutes = express.Router();
 
-
+let api_key = 'key-a2cf31de4910b2743d7a19585c3f4c85'
+let domain = 'sandboxcc6313cdfcfd4c37a39123dd094ce1ab.mailgun.org'
 let mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 let mailcomposer = require('mailcomposer');
 
@@ -34,14 +35,30 @@ module.exports = function(dataHelpers) {
   pollsRoutes.post("/:id", function(req, res) {
     let pollId = req.params.id;
     let pollObj = req.body;
+    console.log(req.body)
+    console.log(pollObj)
     let pollOpt = pollObj.options;
     let link = "/polls/" + pollId;
-    let data = {
-      from: 'Dilan <dilannebioglu@gmail.com>',
-      to: 'nebiogludilan@gmail.com',
-      subject: 'Hello from Decision Maker',
-      html: 'Somebody just voted! You can checkout the current results from your profile! <a href = link>Your profile link</a> Have a good day!'
-    };
+    var mail = mailcomposer({
+          from: 'Riley <t.rileygowan@gmail.com>',
+          to: 't.rileygowan@gmail.com',
+          subject: 'Hello from Decision Maker',
+          html: `Somebody voted! Check out the results:<br><br><a href="http://localhost:8080/admins/2/polls">Here you go.</a><br><br>Have a nice day!`
+        });
+
+        mail.build(function(mailBuildError, message) {
+          var dataToSend = {
+            to: 't.rileygowan@gmail.com',
+            message: message.toString('ascii')
+          }
+
+        mailgun.messages().sendMime(dataToSend, function(sendError, body) {
+          if (sendError) {
+            console.log(sendError);
+            return;
+            }
+          })
+        })
 
     pollOpt.forEach(function(opt) {
       dataHelpers.addVotes(opt, function(err, result) {
