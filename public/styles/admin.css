@@ -1,10 +1,10 @@
-.body {
+.container {
   margin-top: 120px;
   font-family: 'Old Standard TT', serif;
   font-weight: 700;
   text-align: center;
-  /*margin-left: 25em;
-  margin-right: 25em;*/
+  margin-left: 25vw;
+  margin-right: 25vw;
   /*margin-bottom: 80px;*/
 }
 
@@ -19,8 +19,6 @@ body {
   font-size: 15px;
   border-radius: 5px;
   background-color: white;
-  /*background: url(pie_chart.png);*/
-  /*background-size: 580px 190px;*/
 }
 
 article {
@@ -45,20 +43,20 @@ button {
   color: black;
 }
 
-article>a {
+.prettyLink {
   position: relative;
   color: #2F4F4F;
   text-decoration: none;
   padding: 1rem;
 }
 
-article>a:hover {
+.prettyLink:hover {
   color: #2F4F4F;
   text-decoration: none;
   padding: 1rem;
 }
 
-a:before {
+.prettyLink:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -73,7 +71,7 @@ a:before {
   transition: all 0.3s ease-in-out 0s;
 }
 
-a:hover:before {
+.prettyLink:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
@@ -107,16 +105,16 @@ li>p {
 
 #new {
   z-index: 1;
-  margin-top: 250px
+  font-size: 25px;
 }
 
 
 .trial {
   display: none;
-  height: inherit;
-  width: inherit;
+  /*height: 5vw;*/
+  width: 100%;
 }
 
-.high {
-  margin-top: 10vw;
+.row {
+  text-align: center;
 }

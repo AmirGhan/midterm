@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>/admins/:id/polls</title>
+  <title>MY PROFILE</title>
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700" rel="stylesheet">
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -19,37 +19,35 @@
 <body>
   <% include partials/_header.ejs %>
     <div class="container">
+      <a id="new" href="./polls/new" class="prettyLink">Create New Poll</a>
       <div class="row">
         <div class="col">
           <div class="body forImg">
-            <a id="new" href="./polls/new">Create New Poll</a>
             <div class="jumbotron">
               <h3 class="display-3">ACTIVE POLLS</h3>
-              <p class="lead inactive">There are no active polls to show...</p>
-
-              <div class="container">
+              <!-- <div class="container"> -->
                 <div class="col">
                   <div class="row">
                     <section id="adm-poll-template active">
                       <% polls.forEach(function(a) { %>
                         <% if(a.status){ %>
                           <article id="url" name="/admins/<%=adminId%>/polls/<%=a.id%>">
-                            <button class="poll-button btn btn-outline-secondary">
-                            <%=a.pollName%>
-                          </button>
-                            <a class="userlink" href="${a.link}">USER LINK</a>
-                            <a href="#" id="end-poll" class="endPoll-url" name="/admins/<%=adminId%>/polls/<%=a.id%>">END POLL</a>
+                            <button class="poll-button btn btn-dark">
+                              <%=a.pollName%>
+                            </button>
+                            <a class="userlink prettyLink" href="${a.link}">USER LINK</a>
+                            <a href="#" id="end-poll" class="endPoll-url prettyLink" name="/admins/<%=adminId%>/polls/<%=a.id%>">END POLL</a>
                           </article>
                           <% } %>
                             <% }) %>
-                            <hr class="my-4">
+                              <hr class="my-4">
                     </section>
                   </div>
                   <div class="row">
-                      <div class="trial" id="piechartActive"></div>
+                    <div class="trial" id="piechartActive"></div>
                   </div>
                 </div>
-              </div>
+              <!-- </div> -->
             </div>
           </div>
         </div>
@@ -57,39 +55,31 @@
           <div class="forImg high">
             <div class="jumbotron">
               <h3 class="display-3">COMPLETED POLLS</h3>
-              <p class='complete'>There are no completed polls to show...</p>
-              <div class="container">
+              <!-- <div class="container"> -->
                 <div class="col">
                   <div class="row">
                     <section id="adm-poll-template completed">
                       <% polls.forEach(function(a) { %>
                         <% if(!a.status){ %>
-                            <article id="urlClosed" name="/admins/<%=adminId%>/polls/<%=a.id%>">
-                              <button class="poll-button-closed"><%=a.pollName%></button>
-                            </article>
-                            <% } %>
-                              <% }) %>
+                          <article id="urlClosed" name="/admins/<%=adminId%>/polls/<%=a.id%>">
+                            <button class="poll-button-closed poll-button btn btn-dark"><%=a.pollName%></button>
+                          </article>
+                          <% } %>
+                            <% }) %>
                               <hr class="my-4">
-                          </section>
+                    </section>
                   </div>
                   <div class="row">
                     <div id="piechartClosed" class="trial"></div>
                   </div>
 
                 </div>
-              </div>
+              <!-- </div> -->
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
-
-
-
-
-
 
     <% include partials/_footer.ejs %>
       <script type="text/javascript" src="/scripts/admin_polls.js"></script>
