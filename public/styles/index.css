@@ -1,14 +1,15 @@
 body {
-  background-color: #e9ecef;
+  background-color: #E9ECEF;
 }
 
 .body {
   margin-top: 80px;
   font-family: 'Old Standard TT', serif;
   text-align: center;
-  margin-left: 25em;
+  /*margin-left: 25em;
   margin-right: 25em;
-  margin-bottom: -10px;
+  margin-bottom: 60vw;*/
+  /*padding-bottom: -20px;*/
 }
 
 .navbar {
