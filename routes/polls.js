@@ -35,28 +35,30 @@ module.exports = function(dataHelpers) {
   pollsRoutes.post("/:id", function(req, res) {
     let pollId = req.params.id;
     let pollObj = req.body;
+    console.log(req.body)
+    console.log(pollObj)
     let pollOpt = pollObj.options;
     let link = "/polls/" + pollId;
-    let data = {
-      from: 'Dilan <dilannebioglu@gmail.com>',
-      to: 'nebiogludilan@gmail.com',
-      subject: 'Hello from Decision Maker',
+    var mail = mailcomposer({
+          from: 'Riley <t.rileygowan@gmail.com>',
+          to: 't.rileygowan@gmail.com',
+          subject: 'Hello from Decision Maker',
+          html: `Somebody voted! Check out the results:<br><br><a href="http://localhost:8080/admins/2/polls">Here you go.</a><br><br>Have a nice day!`
+        });
 
-      html: `Somebody voted on your poll! Check out the results here:<br><br><a href="http://localhost:8080/admins/${admin_id}/polls">Results</a><br><br>Have a nice day!`
-    };
-    mail.build(function(mailBuildError, message) {
+        mail.build(function(mailBuildError, message) {
           var dataToSend = {
             to: 't.rileygowan@gmail.com',
             message: message.toString('ascii')
           }
 
-    mailgun.messages().sendMime(dataToSend, function(sendError, body) {
-      if (sendError) {
-      console.log(sendError);
-      return;
-    }
-  })
-})
+        mailgun.messages().sendMime(dataToSend, function(sendError, body) {
+          if (sendError) {
+            console.log(sendError);
+            return;
+            }
+          })
+        })
 
     pollOpt.forEach(function(opt) {
       dataHelpers.addVotes(opt, function(err, result) {
