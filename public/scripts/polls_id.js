@@ -1,10 +1,9 @@
-$(() => {
-
+$( document ).ready(function() {
   //Sort options
   $("#options").sortable();
 
   //Adding data attributes on submit
-  $('.button').on('click', (event) => {
+  $('.button').on('click', function(event) {
     event.preventDefault();
     let $url = $("#options").attr("name");
     $('.completed').removeAttr('hidden');
