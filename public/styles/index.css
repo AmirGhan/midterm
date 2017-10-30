@@ -25,6 +25,7 @@ body {
 }
 
 li {
+  border: 1px solid #000;
   list-style: none;
 }
 
