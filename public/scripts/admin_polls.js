@@ -5,18 +5,16 @@ $(() => {
     $('.complete').remove();
   }
 
-  $('#end-poll').on('click', function(event) {
+  $('#end-poll').on('click', (event) => {
     event.preventDefault();
     let $url = $(this).closest('.endPoll-url').attr('name');
-
     $.ajax({
       url: $url,
       method: 'PUT',
       dataType: 'json',
       success: function(response) {
-        location.reload()
+        location.reload();
       }
-    })
-  })
-
+    });
+  });
 });

@@ -3,39 +3,40 @@
 const express = require('express');
 const pollsRoutes = express.Router();
 
-var api_key = '';
-var domain = '';
+let api_key = '';
+let domain = '';
 // var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
-module.exports = function(dataHelpers) {
+module.exports = (dataHelpers) => {
 
-  pollsRoutes.get("/:id", function(req, res) {
+  pollsRoutes.get("/:id", (req, res) => {
     const pollId = req.params.id;
     dataHelpers.getPoll(pollId, (err, poll) => {
-      var templateVars = {
+      let templateVars = {
         poll: poll,
         id: pollId
-      }
+      };
 
       if (templateVars.poll[0].status === true) {
         if (err) {
           res.status(500).json({error: err.message});
         } else {
-          res.status(200).render('polls_id', templateVars)
+          res.status(200).render('polls_id', templateVars);
         }
       } else {
-        res.send("This poll has been closed!") ///// Style this if we have time
+        res.send("This poll has been closed!"); // Style this if we have time
       }
     });
   }),
 
+
   // to VOTE
-  pollsRoutes.post("/:id", function(req, res) {
+  pollsRoutes.post("/:id", (req, res) => {
     let pollId = req.params.id;
     let pollObj = req.body;
     let pollOpt = pollObj.options;
-    let link = "/polls/" + pollId
-    var data = {
+    let link = "/polls/" + pollId;
+    let data = {
       from: 'Dilan <dilannebioglu@gmail.com>',
       to: 'nebiogludilan@gmail.com',
       subject: 'Hello from Decision Maker',
@@ -46,16 +47,16 @@ module.exports = function(dataHelpers) {
       dataHelpers.addVotes(opt, (err, result) => {
         if (err) {
           res.status(500).json({error: err.message});
-          return
+          return;
         }
-      })
-    })
+      });
+    });
     // mailgun.messages().send(data, function(error, body) {
     //   console.log('email');
     //   console.log(body);
     // });
-    res.status(200)
-  })
+    res.status(200);
+  });
 
   return pollsRoutes;
-}
+};

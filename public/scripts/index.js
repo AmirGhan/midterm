@@ -1,4 +1,3 @@
 $(() => {
-  alert('hi');
   $(".options").sortable();
 });

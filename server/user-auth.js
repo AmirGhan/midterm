@@ -1,13 +1,13 @@
 //const bcrypt = require('bcrypt');
 
-module.exports = function makeAuthHelpers(knex) {
+module.exports =  function makeAuthHelpers(knex) {
   return {
-    addUser: function(email, password) {
+    addUser: (email, password) => {
       checkEmailUniqueness(email)
       .then((email)=>{
         return bcrypt.hash(password, 10);
       })
-      .then((passwordDigest)=>{
+      .then((passwordDigest) => {
         return knex('admins')
         .insert({
           email: email,
@@ -15,7 +15,7 @@ module.exports = function makeAuthHelpers(knex) {
         })
       })
     },
-  checkEmailUniqueness: function(email) {
+  checkEmailUniqueness: (email) => {
     return new Promise((resolve, reject) => {
       findByEmail(email, knex)
       .then((user) => {
@@ -30,7 +30,7 @@ module.exports = function makeAuthHelpers(knex) {
     })
   })
 },
-findByEmail: function(email, callback) {
+findByEmail: (email, callback) => {
       return new Promise((resolve, reject) => {
         knex('admins')
         .select('*')
@@ -39,7 +39,6 @@ findByEmail: function(email, callback) {
         .then((rows) => {
           user = rows[0]
           callback(null, user);
-          //Do we require promise?
           return resolve(user)
         })
         .catch((error) => reject(error));
