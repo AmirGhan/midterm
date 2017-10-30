@@ -18,33 +18,50 @@
         <h1>Create your poll</h1>
 
       </div>
-      <section class="new-poll">
+      <div class='jumbotron'>
+        <section class="new-poll">
 
-        <form method="POST" action="./new">
-          <section class="options-section">
+          <form method="POST" action="./new">
 
-            <textarea class="options-template" hidden></textarea>
 
-            <p>Poll name: </p>
-            <textarea name="pollName" placeholder="What movie are we gonna watch this Tuesday?"></textarea>
 
-            <p>Option: </p>
-            <textarea name="option" placeholder="Blade Runner 2049"></textarea>
 
-            <p id="p-template">Option: </p>
-            <textarea class="option" name="option" placeholder="Suburbicon"></textarea>
-          </section>
-          <br>
-          <i class="glyphicon glyphicon-plus"></i>
-          <br>
-          <input class="submit" type="submit" value="Submit">
+<div class="jumbotron">
+  <h1 class="display-3">Create A New Poll</h1>
+  <hr class="my-4">
+  <section class="options-section">
+    <div class="col">
+      <div class="row">
+<textarea class="options-template" hidden></textarea>
+      </div>
+      <div class="row">
+<textarea name="pollName" placeholder="Poll Name"></textarea>
+      </div>
+      <div class="row">
+<textarea name="option" placeholder="Option"></textarea>
+      </div>
+      <div class="row">
+        <textarea id="p-template" class="option" name="option" placeholder="Option"></textarea>
+      </div>
+    </div>
+  </section>
+  <br>
+  <i class="glyphicon glyphicon-plus"></i>
+  <br>
+  <input class="submit" type="submit" value="Submit">
+</form>
+<form method="GET" action="/admins/<%=adminId%>/polls">
+  <input type="submit" value="cancel" id="cancel">
 
-        </form>
-        <form method="GET" action="/admins/<%=adminId%>/polls">
-          <input type="submit" value="cancel" id="cancel">
+</form>
+</div>
 
-        </form>
-      </section>
+
+
+
+        </section>
+      </div>
+
 
     </main>
 

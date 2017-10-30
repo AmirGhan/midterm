@@ -12,7 +12,11 @@
 .new-poll {
   margin-top: 115px;
 }
-
+/*
 form {
   height: 100%;
+}*/
+
+.jumbotron {
+  margin-top: 8vw;
 }
