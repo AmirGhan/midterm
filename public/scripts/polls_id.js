@@ -45,20 +45,20 @@ $(() => {
     });
   });
 
-  createPoll(pollData) => {
+  function createPoll(pollData) {
     let $poll = $('#poll-template').clone();
     $poll.removeAttr(hidden);
     $poll.find('.poll-name').text(pollData['poll']['name']);
     appendOptions(pollData);
   }
 
-  appendOptions(optionsArr) => {
+  function appendOptions(optionsArr) {
     optionsArr.forEach((option) => {
       let newOption = createOptions(option);
       $('#poll-template').append(newOption);
     });
   }
-  createOptions(options) => {
+  function createOptions(options) {
     let $option = $('#poll-template .options').clone();
     $option.removeAttr(hidden);
     $option.find('.option-name').text(options['option']['name']);
