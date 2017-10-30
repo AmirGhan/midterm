@@ -50,12 +50,12 @@ app.use("/", homeRoutes(authHelpers));
 app.use("/admins", adminsRoutes(dataHelpers));
 
 // Home page
-app.get("/", (req, res) => {
+app.get("/", function(req, res) {
   res.render("index");
 });
 
 
 
-app.listen(PORT, () => {
+app.listen(PORT, function() {
   console.log("Example app listening on port " + PORT);
 });

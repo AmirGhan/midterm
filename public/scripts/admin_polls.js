@@ -5,7 +5,7 @@ $( document ).ready(function() {
     $('.complete').remove();
   }
 
-  $('#end-poll').on('click', function (event) {
+  $('#end-poll').on('click', function(event) {
     event.preventDefault();
     let $url = $(this).closest('.endPoll-url').attr('name');
     $.ajax({

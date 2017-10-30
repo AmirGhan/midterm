@@ -2,7 +2,8 @@
   padding-left: 30px;
   padding-right: 30px;
   font-family: 'Old Standard TT', serif;
-  background: url(pie_chart.png);
+  /*background: url(pie_chart.png);*/
+  background: #4885ed;
   height: 84px;
 }
 

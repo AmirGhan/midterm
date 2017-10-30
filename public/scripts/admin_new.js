@@ -1,6 +1,6 @@
-$(() => {
+$(function() {
 
-  $("i").on("click", () => {
+  $("i").on("click", function() {
     let $option = $(".options-template").clone();
     let $p = $("<p>").text('Option: ');
     $option.removeAttr("hidden").removeClass("options-template");
@@ -9,7 +9,7 @@ $(() => {
     $(".options-section").append($option);
   });
 
-  $('.submit').on("click", (event) => {
+  $('.submit').on("click", function(event) {
     $('.submitted').removeAttr('hidden');
   });
 });

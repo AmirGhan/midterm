@@ -3,19 +3,19 @@
 const express = require('express');
 const homeRoutes = express.Router();
 
-module.exports = (authHelpers) => {
+module.exports = function(authHelpers) {
 
-  homeRoutes.post('/login', (req, res) => {
+  homeRoutes.post('/login', function(req, res) {
     const {email, password} = req.body;
-    authHelpers.findByEmail(email, (err, admin) => {
+    authHelpers.findByEmail(email, function(err, admin) {
       res.redirect(`/admins/${admin.id}/polls`);
     });
   });
 
-  homeRoutes.post('/register', (req, res) => {
+  homeRoutes.post('/register', function(req, res) {
     let email = req.body.email;
     let password = req.body.password;
-    authHelpers.addUser(email, password, (err, id) => {
+    authHelpers.addUser(email, password, function(err, id) {
      
     });
     res.send('You made it');
