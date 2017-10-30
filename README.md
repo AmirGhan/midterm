@@ -1,6 +1,7 @@
 # Drag Rank
 
 **An easy-to-use poll building tool.**
+<br />
 Make a poll, send it to whoever you want to vote, then receive the results.
 
 ![Homepage](https://github.com/nebdil/midterm/blob/user-auth/docs/Home%20page.png?raw=true)
