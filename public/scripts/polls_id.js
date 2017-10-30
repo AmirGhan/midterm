@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-  alert('in .js');
   //Sort options
   $("#options").sortable();
 
