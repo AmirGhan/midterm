@@ -1,12 +1,12 @@
-exports.up = (knex, Promise) => {
-  return knex.schema.table('polls', (t) => {
+exports.up = function(knex, Promise) {
+  return knex.schema.table('polls', function(t) {
     t.boolean('status').defaultTo(true);
   });
 
 };
 
-exports.down = (knex, Promise) => {
-  return knex.schema.table('polls', (t) => {
+exports.down = function(knex, Promise) {
+  return knex.schema.table('polls', function(t) {
     t.dropColumn('status');
   });
 
