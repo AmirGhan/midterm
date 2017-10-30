@@ -41,9 +41,9 @@ module.exports = function(dataHelpers) {
       from: 'Dilan <dilannebioglu@gmail.com>',
       to: 'nebiogludilan@gmail.com',
       subject: 'Hello from Decision Maker',
-<<<<<<< HEAD
+
       html: `Somebody voted on your poll! Check out the results here:<br><br><a href="http://localhost:8080/admins/${admin_id}/polls">Results</a><br><br>Have a nice day!`
-    });
+    };
     mail.build(function(mailBuildError, message) {
           var dataToSend = {
             to: 't.rileygowan@gmail.com',
@@ -57,10 +57,6 @@ module.exports = function(dataHelpers) {
     }
   })
 })
-=======
-      html: 'Somebody just voted! You can checkout the current results from your profile! <a href = link>Your profile link</a> Have a good day!'
-    };
->>>>>>> 778718bce636f086247fb360bd4d41b3f1916cec
 
     pollOpt.forEach(function(opt) {
       dataHelpers.addVotes(opt, function(err, result) {
@@ -72,12 +68,5 @@ module.exports = function(dataHelpers) {
     });
     res.status(200);
   });
-<<<<<<< HEAD
-  return pollsRoutes;
-});
-}
-=======
-
   return pollsRoutes;
 };
->>>>>>> 778718bce636f086247fb360bd4d41b3f1916cec
