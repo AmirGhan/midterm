@@ -33,7 +33,7 @@ $( document ).ready(function() {
   });
 });
 
-$(() => {
+$(function() {
   $('.poll-button-closed').on('click', function (event) {
     event.preventDefault();
     let $url = $(this).closest('#urlClosed').attr('name');

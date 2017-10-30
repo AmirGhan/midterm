@@ -37,7 +37,7 @@ $( document ).ready(function() {
       method: 'POST',
       dataType: 'json',
       data: pollObj,
-      success: (response) => {
+      success: function(response) {
 
       }
 
@@ -52,7 +52,7 @@ $( document ).ready(function() {
   }
 
   function appendOptions(optionsArr) {
-    optionsArr.forEach((option) => {
+    optionsArr.forEach(function(option) {
       let newOption = createOptions(option);
       $('#poll-template').append(newOption);
     });

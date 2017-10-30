@@ -7,11 +7,11 @@ let api_key = '';
 let domain = '';
 // var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
-module.exports = (dataHelpers) => {
+module.exports = function(dataHelpers) {
 
-  pollsRoutes.get("/:id", (req, res) => {
+  pollsRoutes.get("/:id", function(req, res) {
     const pollId = req.params.id;
-    dataHelpers.getPoll(pollId, (err, poll) => {
+    dataHelpers.getPoll(pollId, function(err, poll) {
       let templateVars = {
         poll: poll,
         id: pollId
@@ -31,7 +31,7 @@ module.exports = (dataHelpers) => {
 
 
   // to VOTE
-  pollsRoutes.post("/:id", (req, res) => {
+  pollsRoutes.post("/:id", function(req, res) {
     let pollId = req.params.id;
     let pollObj = req.body;
     let pollOpt = pollObj.options;
@@ -44,7 +44,7 @@ module.exports = (dataHelpers) => {
     };
 
     pollOpt.forEach(function(opt) {
-      dataHelpers.addVotes(opt, (err, result) => {
+      dataHelpers.addVotes(opt, function(err, result) {
         if (err) {
           res.status(500).json({error: err.message});
           return;
