@@ -3,11 +3,11 @@
 **An easy-to-use poll building tool.**
 Make a poll, send it to whoever you want to vote, then receive the results.
 
-![Admin page - closed poll](https://github.com/nebdil/midterm/blob/user-auth/docs/Admin%20page%20-%20Closed%20polls.png?raw=true)
-![Admin page - active poll](https://github.com/nebdil/midterm/blob/user-auth/docs/Admin%20page-Active%20polls.png?raw=true)
 ![Homepage](https://github.com/nebdil/midterm/blob/user-auth/docs/Home%20page.png?raw=true)
+![Admin page - closed poll](https://github.com/nebdil/midterm/blob/user-auth/docs/Admin%20page%20-%20Closed%20polls.png?raw=true)
 ![New poll](https://github.com/nebdil/midterm/blob/user-auth/docs/New%20poll.png?raw=true)
 ![Vote](https://github.com/nebdil/midterm/blob/user-auth/docs/Vote.png?raw=true)
+![Admin page - active poll](https://github.com/nebdil/midterm/blob/user-auth/docs/Admin%20page-Active%20polls.png?raw=true)
 
 ## Project Setup
 
