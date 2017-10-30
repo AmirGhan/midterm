@@ -4,7 +4,9 @@ const express = require('express');
 const pollsRoutes = express.Router();
 
 
-// var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+let mailcomposer = require('mailcomposer');
+
 
 module.exports = function(dataHelpers) {
 
@@ -53,7 +55,7 @@ module.exports = function(dataHelpers) {
       return;
     }
   })
-}
+})
 
     pollOpt.forEach(function(opt) {
       dataHelpers.addVotes(opt, function(err, result) {
@@ -65,11 +67,5 @@ module.exports = function(dataHelpers) {
   res.status(200);
   });
   return pollsRoutes;
-  };
+});
 }
-
-
-
-
-
-
