@@ -35,7 +35,7 @@ module.exports = (dataHelpers) => {
 
 }),
 
-<<<<<<< HEAD
+
 //Crete new poll
 adminsRoutes.post("/:id/polls/new", (req, res) => {
 

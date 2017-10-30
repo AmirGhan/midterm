@@ -53,7 +53,7 @@ $(() => {
         google.charts.load('current', {'packages': ['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
-         drawChart() => {
+         function drawChart() {
 
           let data = google.visualization.arrayToDataTable(arr);
 
