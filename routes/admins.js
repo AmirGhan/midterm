@@ -4,10 +4,11 @@ const express = require('express');
 const adminsRoutes = express.Router();
 const userAuth = require('../server/user-auth.js');
 
-// var api_key = 'api_key'
-// var domain = 'domain'
+var api_key = '#'
+var domain = '#'
 
-// var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+var mailcomposer = require('mailcomposer');
 
 module.exports = (dataHelpers) => {
 
@@ -34,30 +35,43 @@ module.exports = (dataHelpers) => {
 
 }),
 
+<<<<<<< HEAD
 //Crete new poll
 adminsRoutes.post("/:id/polls/new", (req, res) => {
+
   const options = req.body.option;
   const pollName = req.body.pollName;
   const admin_id = req.params.id;
   const status = true;
+
   dataHelpers.savePoll(pollName, admin_id, status, (err, poll_id) => {
     options.forEach((option) => {
       dataHelpers.saveOption(Number(poll_id), option, (err, result) => {
-        // console.log(err);
-        // let data = {
-        //   from: 'Riley <t.rileygowan@gmail.com>',
-        //   to: 't.rileygowan@gmail.com',
-        //   subject: 'Hello from Decision Maker',
-        //   text: 'Congrats on creating a new poll! In case you missed the extremely important links to get you going from this point on, here they are: Your profile link & The link you want to send to your friends. Have a good day!'
-        // };
 
-        // mailgun.messages().send(data, (error, body) => {
-        //   console.log('email');
-        //   console.log(body);
-        // });
-      });
-    });
-  });
+        var mail = mailcomposer({
+          from: 'Riley <t.rileygowan@gmail.com>',
+          to: 't.rileygowan@gmail.com',
+          subject: 'Hello from Decision Maker',
+          body: 'Congrats on creating a new poll! In case you missed the extremely important links to get you going from this point on, here they are: Your profile link & The link you want to send to your friends. Have a good day!',
+          html: '<a href="www.google.com">Google</a>'
+        });
+
+        mail.build((mailBuildError, message) => {
+          var dataToSend = {
+            to: 't.rileygowan@gmail.com',
+            message: message.toString('ascii')
+          }
+
+        mailgun.messages().sendMime(dataToSend, (sendError, body) => {
+          if (sendError) {
+            console.log(sendError);
+            return;
+        }
+      })
+    })
+      })
+    })
+  })
   res.redirect(`/admins/${admin_id}/polls`);
 }),
 

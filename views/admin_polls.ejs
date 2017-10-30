@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>/admins/:id/polls</title>
+  <title>MY PROFILE</title>
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700" rel="stylesheet">
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -19,7 +19,7 @@
 <body>
   <% include partials/_header.ejs %>
     <div class="container">
-      <a id="new" href="./polls/new">Create New Poll</a>
+      <a id="new" href="./polls/new" class="prettyLink">Create New Poll</a>
       <div class="row">
         <div class="col">
           <div class="body forImg">
@@ -32,11 +32,11 @@
                       <% polls.forEach(function(a) { %>
                         <% if(a.status){ %>
                           <article id="url" name="/admins/<%=adminId%>/polls/<%=a.id%>">
-                            <button class="poll-button btn btn-outline-secondary">
+                            <button class="poll-button btn btn-dark">
                               <%=a.pollName%>
                             </button>
-                            <a class="userlink" href="${a.link}">USER LINK</a>
-                            <a href="#" id="end-poll" class="endPoll-url" name="/admins/<%=adminId%>/polls/<%=a.id%>">END POLL</a>
+                            <a class="userlink prettyLink" href="${a.link}">USER LINK</a>
+                            <a href="#" id="end-poll" class="endPoll-url prettyLink" name="/admins/<%=adminId%>/polls/<%=a.id%>">END POLL</a>
                           </article>
                           <% } %>
                             <% }) %>
@@ -62,7 +62,7 @@
                       <% polls.forEach(function(a) { %>
                         <% if(!a.status){ %>
                           <article id="urlClosed" name="/admins/<%=adminId%>/polls/<%=a.id%>">
-                            <button class="poll-button-closed"><%=a.pollName%></button>
+                            <button class="poll-button-closed poll-button btn btn-dark"><%=a.pollName%></button>
                           </article>
                           <% } %>
                             <% }) %>
