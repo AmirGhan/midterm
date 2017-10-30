@@ -4,10 +4,11 @@ const express = require('express');
 const adminsRoutes = express.Router();
 const userAuth = require('../server/user-auth.js');
 
-// var api_key = 'api_key'
-// var domain = 'domain'
+var api_key = 'key-a2cf31de4910b2743d7a19585c3f4c85'
+var domain = 'sandboxcc6313cdfcfd4c37a39123dd094ce1ab.mailgun.org'
 
-// var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+var mailcomposer = require('mailcomposer');
 
 module.exports = function(dataHelpers) {
 
@@ -37,6 +38,7 @@ module.exports = function(dataHelpers) {
 
 }),
 
+
 adminsRoutes.post("/:id/polls/new", function(req, res) {
   const options = req.body.option;
   const pollName = req.body.pollName;
@@ -45,18 +47,28 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
   dataHelpers.savePoll(pollName, admin_id, status, function(err, poll_id) {
     options.forEach(function(option) {
       dataHelpers.saveOption(Number(poll_id), option, function(err, result) {
-        // console.log(err);
-        // var data = {
-        //   from: 'Riley <t.rileygowan@gmail.com>',
-        //   to: 't.rileygowan@gmail.com',
-        //   subject: 'Hello from Decision Maker',
-        //   text: 'Congrats on creating a new poll! In case you missed the extremely important links to get you going from this point on, here they are: Your profile link & The link you want to send to your friends. Have a good day!'
-        // };
 
-        // mailgun.messages().send(data, function(error, body) {
-        //   console.log('email');
-        //   console.log(body);
-        // });
+        var mail = mailcomposer({
+          from: 'Riley <t.rileygowan@gmail.com>',
+          to: 't.rileygowan@gmail.com',
+          subject: 'Hello from Decision Maker',
+          body: 'Congrats on creating a new poll! In case you missed the extremely important links to get you going from this point on, here they are: Your profile link & The link you want to send to your friends. Have a good day!',
+          html: '<a href="www.google.com">Google</a>'
+        });
+
+        mail.build(function(mailBuildError, message) {
+          var dataToSend = {
+            to: 't.rileygowan@gmail.com',
+            message: message.toString('ascii')
+          }
+
+        mailgun.messages().sendMime(dataToSend, function(sendError, body) {
+          if (sendError) {
+            console.log(sendError);
+            return;
+        }
+      })
+    })
       })
     })
   })
