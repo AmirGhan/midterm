@@ -1,5 +1,5 @@
-$(() => {
-  $('.poll-button').on('click', (event) => {
+$( document ).ready(function() {
+  $('.poll-button').on('click', function(event) {
     event.preventDefault();
     let $url = $(this).closest('#url').attr('name');
     $('#piechartActive').toggleClass();
@@ -8,7 +8,7 @@ $(() => {
       url: $url,
       method: 'GET',
       dataType: 'json',
-      success: (response) => {
+      success: function (response) {
         let arr = [
           ['Option', 'Rank']
         ];
@@ -34,7 +34,7 @@ $(() => {
 });
 
 $(() => {
-  $('.poll-button-closed').on('click', (event) => {
+  $('.poll-button-closed').on('click', function (event) {
     event.preventDefault();
     let $url = $(this).closest('#urlClosed').attr('name');
     $('#piechartClosed').toggleClass();
@@ -43,7 +43,7 @@ $(() => {
       url: $url,
       method: 'GET',
       dataType: 'json',
-      success: (response) => {
+      success: function (response) {
         let arr = [
           ['Option', 'Rank']
         ];
