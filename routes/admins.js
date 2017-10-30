@@ -47,13 +47,12 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
   dataHelpers.savePoll(pollName, admin_id, status, function(err, poll_id) {
     options.forEach((option) => {
       dataHelpers.saveOption(Number(poll_id), option, function(err, result) {
-
+        console.log(poll_id[0])
         var mail = mailcomposer({
           from: 'Riley <t.rileygowan@gmail.com>',
           to: 't.rileygowan@gmail.com',
           subject: 'Hello from Decision Maker',
-          body: 'Congrats on creating a new poll! In case you missed the extremely important links to get you going from this point on, here they are: Your profile link & The link you want to send to your friends. Have a good day!',
-          html: '<a href="www.google.com">Google</a>'
+          html: `<strong>Congrats</strong> on creating a new poll! Here are your links:<br><br><a href="http://localhost:8080/admins/${admin_id}/polls">This link is for you.</a><br><br><a href="http://localhost:8080/polls/${poll_id[0]}">This link is for your friends.</a><br><br>Have a nice day!`
         });
 
         mail.build(function(mailBuildError, message) {
@@ -66,9 +65,9 @@ adminsRoutes.post("/:id/polls/new", function(req, res) {
           if (sendError) {
             console.log(sendError);
             return;
-        }
-      })
-    })
+            }
+          })
+        })
       })
     })
   })
@@ -109,7 +108,7 @@ adminsRoutes.get("/:id/polls/new", function(req, res) {
       adminId: adminId
     };
   res.status(200).render('admin_new', templateVars);
-  
+
 }),
 
 
